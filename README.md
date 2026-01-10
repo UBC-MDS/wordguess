@@ -9,7 +9,7 @@
 If you don't plan to publish to PyPI, you can remove them.*
 
 ## Summary
-The wordguess package is designed for creating and playing a word guessing game. The package provides functionality to set up the game, manage user inputs, and check guesses against a target word. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games.
+The wordguess package is designed for developer to create guessing game. The package provides functionality for word validation, feedback generation, corpus managementd. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games. wordguess provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
 
 ## Get started
 
