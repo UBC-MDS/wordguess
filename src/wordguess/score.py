@@ -40,14 +40,14 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
 
     Examples
     --------
-    >>> get_score([[0, 1, 1, 2, 2], [0, 2, 2, 2, 2], [2, 2, 2, 2, 2]])
+    >>> get_score(["01122", "02222", "22222"])
     100.0
-    >>> get_score([[0, 0, 0, 0, 0], [2, 2, 2, 2, 2]])
+    >>> get_score(["00000", "22222"])
     100.0
-    >>> get_score([[0, 1, 1, 2, 2], [0, 2, 2, 2, 2], [2, 2, 2, 2, 2]], penalty=True, 0.1)
+    >>> get_score(["01122", "02222", "22222"], penalty=True, 0.1)
     81.0
-    >>> get_score([[0, 0, 0, 0, 0], [2, 1, 2, 2, 2]])
-    0.0
+    >>> get_score(["00000", "21222"])
+    90.0
 
     """
     ...
