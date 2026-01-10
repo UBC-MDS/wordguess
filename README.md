@@ -5,13 +5,13 @@
 | Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/wordguess.svg)](https://pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://pypi.org/project/wordguess/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
-*TODO: the above badges that indicate python version and package version will only work if your package is on PyPI.
-If you don't plan to publish to PyPI, you can remove them.*
+wordguess is a project that contains essential functions for a word-guessing game, inspired by Wordle.
 
-wordguess is a project that (describe what it does here).
+The package decouples the mechanics of a word-guess game, such as word validation, feedback generation, corpus management. It allows developers to build custom word games rapidly. Whether you are creating a terminal-based challenge, a web app, or a bot to solve puzzles, wordguess provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
+
+wordguess fits perfectly into the Python ecosystem by offering a simple foundation for word-based projects. It uses standard Python practices, making it a great tool for learning to code or for developers who want to quickly add logic to their game ideas. Because the package emphasizes clean type-hinting and standardized docstrings, it serves as an excellent resource for developers learning about string manipulation, algorithmic logic, and package distribution. It bridges the gap between simple script-based games and production-ready modular code.
 
 ## Get started
-
 You can install this package into your preferred Python environment using pip:
 
 ```bash
@@ -26,6 +26,61 @@ To use wordguess in your code:
 >>> import wordguess
 >>> wordguess.hello_world()
 ```
+
+## Dataset & user functions
+
+* Dataset: `minidict` (*list*)
+  * **Location:** `/src/wordguess/_internals.py`
+  * **Description:** A default list of 100 common English words, each five letters in length. This serves as the fallback `corpus` for all functions unless a custom list is provided.
+
+* `get_result(target, guess, corpus=minidict)`
+  * **Location:** `/src/wordguess/get_result.py`
+  * **Description:** Compares a `guess` against a `target` and returns the comparison `result`.
+  * **Parameters:**
+    * **target** (*str*): The secret word to be guessed.
+    * **guess** (*str*): The player's attempt.
+    * **corpus** (*list*, optional): A list of valid words for validation. Defaults to `minidict`.
+  * **Returns:** (*str*) A string of digits ('0', '1', '2') mapping the relationship between letters.
+
+* `get_score(target, guess, corpus=minidict)`
+  * **Location:** `/src/wordguess/get_score.py`
+  * **Description:** Calculates a numerical `score` representing the "goodness" of a guess.
+  * **Parameters:**
+    * **target** (*str*): The secret word to be guessed.
+    * **guess** (*str*): The player's attempt.
+    * **corpus** (*list*, optional): Validation list. Defaults to `minidict`.
+  * **Returns:** (*int*) The calculated score based on position and letter matches.
+
+* `get_n_guesses(result_hist, n, corpus)`
+  * **Location:** `/src/wordguess/get_n_relatives.py`
+  * **Description:** Identifies the `n` most similar words (relatives) to the `target` from a given corpus. This identifies the statistically "best possible guesses" by calling `get_score()`.
+  * **Parameters:**
+    * **result_hist** (*str*): The secret word to compare against.
+    * **n** (*int*): The number of relative words to return.
+    * **corpus** (*list*, optional): The library of words to search. Defaults to `minidict`.
+  * **Returns:** (*list*) A list of the top `n` strings.
+
+* `result_to_pattern(result)`
+  * **Location:** `/src/wordguess/result_to_pattern.py`
+  * **Description:** Converts a numerical `result` string into a human-readable `pattern` using UTF-8 Colored Symbols.
+  * **Parameters:**
+    * **result** (*str*): A string of 0s, 1s, and 2s.
+  * **Returns:** (*str*) A visual string of emojis (e.g., 🟩, 🟨, ⬛).
+
+## Key Definitions
+
+To ensure consistency for **users** (developers) and **players** (end-users), the following terminology is used throughout the package:
+
+| Term | Definition |
+| --- | --- |
+| **User** | The developer interacting with this package. |
+| **Player** | The person playing the word-guessing game. |
+| **Target** | The specific word chosen to be guessed. |
+| **Guess** | The string submitted by the player to match the target. |
+| **Corpus / Dataset** | A list of English words (like `minidict`) used as the search space. |
+| **Result** | A string of 0, 1, 2 indicating letter status (0=None, 1=Wrong Spot, 2=Correct). |
+| **Pattern** | The visual, emoji-based representation of a **Result**. |
+| **Score** | A numerical value quantifying how close a **Guess** is to a **Target**. |
 
 ## Copyright
 
