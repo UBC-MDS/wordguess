@@ -1,5 +1,5 @@
 # Contributor Covenant Code of Conduct
-_Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau_
+_Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Chung Ki(Harry) Yau_
 
 ## Our Pledge
 
