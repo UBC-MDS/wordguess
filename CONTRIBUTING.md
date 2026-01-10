@@ -1,5 +1,7 @@
 # Contributing
 
+Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau. 
+
 Contributions of all kinds are welcome here, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
@@ -104,3 +106,9 @@ Before you submit a pull request, check that it meets these guidelines:
    new functionality into a function with a docstring.
 3. Your pull request will automatically be checked by the full test suite.
    It needs to pass all of them before it can be considered for merging.
+
+### Code Style
+Your suggested code should follow [PEP 8](https://pep8.org/) Python style guide. We recommend [black](https://black.readthedocs.io/) for automatic code formatting and [flake8](https://flake8.pycqa.org/) for linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using [NumPy style](https://peps.python.org/pep-0008/#documentation-strings).
+
+## Code of Conduct
+Please not that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
