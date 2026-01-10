@@ -1,3 +1,6 @@
+# score.py
+# author: Harry Yau
+# date 2026-01-09
 """
 A module that calculate the score of the guessing word.
 this function will take a list of integer list as input and return a score
