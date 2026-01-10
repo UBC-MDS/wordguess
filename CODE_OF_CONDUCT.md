@@ -1,4 +1,5 @@
 # Contributor Covenant Code of Conduct
+_Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau_
 
 ## Our Pledge
 
@@ -58,12 +59,9 @@ representative at an online or offline event.
 
 ## Enforcement
 
-[//]: # (TODO: You need to choose whom and how to contact them.)
-
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-\[INSERT CONTACT METHOD\].
-All complaints will be reviewed and investigated promptly and fairly.
+reported by contacting the project team through email. Please check the [Contact Project Team](#contact-project-team) section for contact details.
+The team will investigate reports with discretion, to ensure transparency where appropriate while prioritizing safety, well being and respect for all involved.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
@@ -113,6 +111,13 @@ individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within
 the community.
+
+## Contact Project Team:
+
+- Sarisha Das: rishadaz@student.ubc.ca
+- Sarah Gauthier: sgauth01@student.ubc.ca
+- Yuheng Ouyang: yuhengo@student.ubc.ca
+- Harry Yau: chungki@student.ubc.ca
 
 ## Attribution
 
