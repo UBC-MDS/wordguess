@@ -19,13 +19,11 @@ You can install this package into your preferred Python environment using pip:
 $ pip install wordguess
 ```
 
-TODO: Add a brief example of how to use the package to this section
-
 To use wordguess in your code:
 
 ```python
 >>> import wordguess
->>> wordguess.hello_world()
+>>> wordguess.get_result("spark", "spoon")
 ```
 
 ## Dataset & user functions
@@ -53,10 +51,10 @@ To use wordguess in your code:
   * **Returns:** (*int*) The calculated score based on position and letter matches.
 
 * `get_n_guesses(result_hist, n, corpus)`
-  * **Location:** `/src/wordguess/get_n_relatives.py`
-  * **Description:** Identifies the `n` most similar words (relatives) to the `target` from a given corpus. This identifies the statistically "best possible guesses" by calling `get_score()`.
+  * **Location:** `/src/wordguess/get_n_guesses.py`
+  * **Description:** Returns all possible target words consistent with the result history.
   * **Parameters:**
-    * **result_hist** (*str*): The secret word to compare against.
+    * **result_hist** (*dict*): A dictionary mapping previously guessed words to their corresponding results.
     * **n** (*int*): The number of relative words to return.
     * **corpus** (*list*, optional): The library of words to search. Defaults to `minidict`.
   * **Returns:** (*list*) A list of the top `n` strings.
