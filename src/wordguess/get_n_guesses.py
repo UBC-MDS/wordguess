@@ -22,10 +22,10 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     result_hist : dict
         A dictionary mapping previously guessed words to their
         corresponding result strings composed of '0', '1', and '2'.
-    n : int
+    n : int (optional)
         The number of valid guesses to return.
         If None, all valid guesses are returned.
-    corpus : list
+    corpus : list (optional)
         A list of all allowed words to consider as possible targets.
 
     Returns

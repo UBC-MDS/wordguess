@@ -11,7 +11,7 @@ def get_result(target: str, guess: str, corpus: list = minidict) -> str:
         The secret word that needs to be guessed.
     guess : str
         The word provided by the player to be compared against the target.
-    corpus : list, optional
+    corpus : list (optional)
         A collection of valid words used for validation.
         Defaults to `minidict`.
 
