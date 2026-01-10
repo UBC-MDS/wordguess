@@ -8,7 +8,8 @@
 *TODO: the above badges that indicate python version and package version will only work if your package is on PyPI.
 If you don't plan to publish to PyPI, you can remove them.*
 
-wordguess is a project that (describe what it does here).
+## Summary
+The wordguess package is designed for creating and playing a word guessing game. The package provides functionality to set up the game, manage user inputs, and check guesses against a target word. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games.
 
 ## Get started
 
