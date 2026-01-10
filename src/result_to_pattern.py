@@ -1,0 +1,28 @@
+def result_to_pattern(result: str) -> str:
+    """
+    Convert a result string to a human-readable pattern of symbols.
+    
+    This function maps each character in a result string to a corresponding colored square
+    symbol.
+    - The character '0' maps to a dark grey square symbol,
+    - The character '1' maps to a yellow square symbol and,
+    - The character '2' maps to a green square symbol.
+    The output is a string composed of UTF-8 colored square symbols.
+    
+    Parameters:
+    result (str): a string consisting only of the '0', '1' or '2' characters.
+    
+    Returns:
+    str: The corresponding human-readable string pattern composed of UTF-8 colored symbols.
+    
+    Example:
+    >>> result_to_pattern("01102")
+    Output: "⬛🟨🟨⬛🟩"
+    >>> result_to_pattern("0001221")
+    Output: "⬛⬛⬛🟨🟩🟩🟨"
+    
+    """
+    
+    # print("\u2B1B") # ⬛ grey square
+    # print("\U0001F7E8") # 🟨 yellow square
+    # print("\U0001F7E9") # 🟩 green square
