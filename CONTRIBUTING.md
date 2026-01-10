@@ -1,5 +1,7 @@
 # Contributing
 
+Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau. 
+
 Contributions of all kinds are welcome here, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
