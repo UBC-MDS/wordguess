@@ -7,9 +7,10 @@
 
 wordguess is a project that contains essential functions for a word-guessing game, inspired by Wordle.
 
-The package decouples the mechanics of a word-guess game, such as word validation, feedback generation, corpus management. It allows developers to build custom word games rapidly. Whether you are creating a terminal-based challenge, a web app, or a bot to solve puzzles, wordguess provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
+## Summary
+The `wordguess` package is designed for developers to create guessing games. The package provides functionality for word validation, feedback generation, corpus management. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games. `wordguess` provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
 
-wordguess fits perfectly into the Python ecosystem by offering a simple foundation for word-based projects. It uses standard Python practices, making it a great tool for learning to code or for developers who want to quickly add logic to their game ideas. Because the package emphasizes clean type-hinting and standardized docstrings, it serves as an excellent resource for developers learning about string manipulation, algorithmic logic, and package distribution. It bridges the gap between simple script-based games and production-ready modular code.
+`wordguess` fits perfectly into the Python ecosystem by offering a simple foundation for word-based projects. It uses standard Python practices, making it a great tool for learning to code or for developers who want to quickly add logic to their game ideas. Because the package emphasizes clean type-hinting and standardized docstrings, it serves as an excellent resource for developers learning about string manipulation, algorithmic logic, and package distribution. It bridges the gap between simple script-based games and production-ready modular code.
 
 ## Collaborators
 * Sarisha Das
