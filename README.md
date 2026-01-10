@@ -18,13 +18,11 @@ You can install this package into your preferred Python environment using pip:
 $ pip install wordguess
 ```
 
-TODO: Add a brief example of how to use the package to this section
-
 To use wordguess in your code:
 
 ```python
 >>> import wordguess
->>> wordguess.hello_world()
+>>> wordguess.get_result("spark", "spoon")
 ```
 
 ## Dataset & user functions
