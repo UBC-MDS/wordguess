@@ -1,6 +1,6 @@
-# score.py
-# author: Harry Yau
-# date 2026-01-09
+# get_score.py
+# Author: Harry Yau
+# Date: 2026-01-09
 
 def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.0) -> float:
     """
@@ -10,7 +10,7 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     The calculation will be the highest score from the result list.
     each guess will contain characters '0', '1', and '2' representing different guess outcomes.
     
-    calculation will be sum of of the highest guess score diveded by the total score of the words.
+    Calculation will be sum of of the highest guess score diveded by the total score of the words.
     for example, if the highest guess score is "12222"
     the returning score will be (1+2+2+2+2)/10 * 100 = 90.0
 
