@@ -5,7 +5,7 @@
 | Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/wordguess.svg)](https://pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://pypi.org/project/wordguess/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
-wordguess is a project that contains essential functions for a word-guessing game, inspired by Wordle.
+Wordguess is a project that contains essential functions for a word-guessing game, inspired by Wordle.
 
 ## Summary
 The `wordguess` package is designed for developers to create guessing games. The package provides functionality for word validation, feedback generation, corpus management. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games. `wordguess` provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
@@ -72,7 +72,7 @@ To use wordguess in your code:
     * **result** (*str*): A string of 0s, 1s, and 2s.
   * **Returns:** (*str*) A visual string of emojis (e.g., 🟩, 🟨, ⬛).
 
-## Key Definitions
+## Key definitions
 
 To ensure consistency for **users** (developers) and **players** (end-users), the following terminology is used throughout the package:
 
