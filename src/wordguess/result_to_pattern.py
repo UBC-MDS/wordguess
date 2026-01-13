@@ -28,7 +28,11 @@ def result_to_pattern(result: str) -> str:
     >>> result_to_pattern("0001221")
     "⬛⬛⬛🟨🟩🟩🟨"
     """
-
-    # print("\u2B1B") # ⬛ grey square
-    # print("\U0001F7E8") # 🟨 yellow square
-    # print("\U0001F7E9") # 🟩 green square
+    pattern_dict = {'0': "\u2B1B",
+                    '1': "\U0001F7E8",
+                    '2': "\U0001F7E9"}
+    pattern = ""
+    for char in result:
+        pattern += pattern_dict[char]
+    
+    return pattern
