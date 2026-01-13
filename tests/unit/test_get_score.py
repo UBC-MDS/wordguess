@@ -33,3 +33,25 @@ def test_get_score_types():
         pass
     else:
         assert False, "Expected TypeError for non-boolean penalty"
+
+def test_get_score_valid_strings():
+    try:
+        get_score(["012", "12A2"])
+    except ValueError:
+        pass
+    else:
+        assert False, "Expected ValueError for invalid characters in result strings"
+
+    try:
+        get_score(["012", "1223"])
+    except ValueError:
+        pass
+    else:
+        assert False, "Expected ValueError for inconsistent string lengths"
+    try:
+        get_score(["012", "124"])
+    except ValueError:
+        pass
+    else:
+        assert False, "Expected ValueError for invalid characters in result strings"
+
