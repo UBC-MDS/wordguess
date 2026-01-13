@@ -1,8 +1,8 @@
 """
 A test module that tests the result_to_pattern module.
 """
-
-from wordguess.result_to_pattern.result_to_pattern import result_to_pattern
+import pytest
+from wordguess.result_to_pattern import result_to_pattern
 
 def test_result_to_pattern():
     """
@@ -28,9 +28,31 @@ def test_result_to_pattern_input_type():
     Test that string_to_pattern throws an error when the
     input is the incorrect type (i.e., not a string).
     """
+    result_1 = 12100
+    with pytest.raises(TypeError):
+        result_to_pattern(result_1)
+        
+    result_2 = ['0', '1', '2', '0']
+    with pytest.raises(TypeError):
+        result_to_pattern(result_2)
+    
+    result_3 = ['01002', '10202']
+    with pytest.raises(TypeError):
+        result_to_pattern(result_3)
 
 def test_result_to_pattern_chars():
     """
     Test that string_to_pattern throws an error when the
     input contains characters other than '0', '1' or '2'.
     """
+    result_1 = "12300"
+    with pytest.raises(ValueError):
+        result_to_pattern(result_1)
+        
+    result_2 = "89671"
+    with pytest.raises(ValueError):
+        result_to_pattern(result_2)
+    
+    result_3 = "wordle"
+    with pytest.raises(ValueError):
+        result_to_pattern(result_3)
