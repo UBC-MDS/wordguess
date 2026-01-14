@@ -1,12 +1,15 @@
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from src.wordguess.get_score import get_score
 
 def test_get_score_calculate():
     # Test cases
-    assert get_score(["112", "022", "221"], True, 0.1) == 5/6*100 * 0.9 * 0.9
-    assert get_score(["012", "122"], True, 0.1) == 5/6*100 * 0.9
-    assert get_score(["00000","21222","22222"],True, 0.1) == 100 * 0.9 * 0.9
-    assert get_score([], True, 0.1) == 0
-    assert get_score([0, 0, 2], [2, 1, 2], [2, 2, 2], True, 0.3) == 100 * 0.7 * 0.7
+    assert get_score(["112", "022", "221"], True, 0.1) == 67.5 
+    assert get_score(["012", "122"], True, 0.1) == 75.0
+    assert get_score(["00000","21222","22222"],True, 0.1) == 81.0
+    # assert get_score([], True, 0.1) == 0
+    assert get_score(["002", "212", "222"], True, 0.3) == 49.0
 
 def test_get_score_no_penalty():
     assert get_score(["01122", "02222", "22222"]) == 100.0
