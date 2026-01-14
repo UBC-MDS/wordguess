@@ -13,11 +13,14 @@ requires = ["hatchling"]
 [project]
 name = "wordguess"
 # You can chose to use dynamic versioning with hatch or static where you add it manually.
-version = "0.1.0"
+version = "1.0.0"
 
 description = "A Python package with essential functions for a word-guessing game, inspired by Wordle."
 authors = [
-    { name = "Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau", email = "rishadaz@student.ubc.ca, sgauth01@student.ubc.ca, yuhengo@student.ubc.ca, chungki@student.ubc.ca" },
+    { name = "Sarisha Das", email = "rishadaz@student.ubc.ca" },
+    { name = "Sarah Gauthier", email = "sgauth01@student.ubc.ca" },
+    { name = "Yuheng Ouyang", email = "yuhengo@student.ubc.ca" },
+    { name = "Harry Yau", email = "chungki@student.ubc.ca" },
 ]
 license = "MIT"
 requires-python = ">= 3.10" # Adjust based on the minimum version of Python that you support
