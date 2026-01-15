@@ -2,11 +2,11 @@ from wordguess.get_score import get_score
 
 def test_get_score_calculate():
     # Test cases
-    assert get_score(["112", "022", "221"], True, 0.1) == 67.5 
-    assert get_score(["012", "122"], True, 0.1) == 75.0
-    assert get_score(["00000","21222","22222"],True, 0.1) == 81.0
+    assert get_score(["112", "022", "221"], penalty=True, penalty_rate=0.1) == 67.5 
+    assert get_score(["012", "122"], penalty=True, penalty_rate=0.1) == 75.0
+    assert get_score(["00000","21222","22222"], penalty=True, penalty_rate=0.1) == 81.0
     # assert get_score([], True, 0.1) == 0
-    assert get_score(["002", "212", "222"], True, 0.3) == 49.0
+    assert get_score(["002", "212", "222"], penalty=True, penalty_rate=0.3) == 49.0
 
 def test_get_score_no_penalty():
     assert get_score(["01122", "02222", "22222"]) == 100.0
