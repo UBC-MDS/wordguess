@@ -5,10 +5,10 @@
 | Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/wordguess.svg)](https://pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://pypi.org/project/wordguess/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
 
-Wordguess is a project that contains essential functions for a word-guessing game, inspired by Wordle.
+Wordguess is a project that contains essential functions for a word-guessing game, inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html).
 
 ## Summary
-The `wordguess` package is designed for developers to create guessing games. The package provides functionality for word validation, feedback generation, corpus management. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions including numerical and human readable expressions. Additionally, features for scoring and hinting are included to enhance development of word guessing games. `wordguess` provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
+The `wordguess` package is designed for developers to create guessing games. The package provides functionality for word validation, feedback generation, and corpus management. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions, including numerical and human-readable expressions. Additionally, features for scoring and hinting are included to enhance development of word-guessing games. `wordguess` provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
 
 `wordguess` fits perfectly into the Python ecosystem by offering a simple foundation for word-based projects. It uses standard Python practices, making it a great tool for learning to code or for developers who want to quickly add logic to their game ideas. Because the package emphasizes clean type-hinting and standardized docstrings, it serves as an excellent resource for developers learning about string manipulation, algorithmic logic, and package distribution. It bridges the gap between simple script-based games and production-ready modular code.
 
@@ -25,7 +25,7 @@ You can install this package into your preferred Python environment using pip:
 $ pip install wordguess
 ```
 
-To use wordguess in your code:
+To use `wordguess` in your code:
 
 ```python
 >>> import wordguess
@@ -67,7 +67,7 @@ To use wordguess in your code:
 
 * `result_to_pattern(result)`
   * **Location:** `/src/wordguess/result_to_pattern.py`
-  * **Description:** Converts a numerical `result` string into a human-readable `pattern` using UTF-8 Colored Symbols.
+  * **Description:** Converts a numerical `result` string into a human-readable `pattern` using [UTF-8 Colored Symbols](https://www.utf8icons.com/).
   * **Parameters:**
     * **result** (*str*): A string of 0s, 1s, and 2s.
   * **Returns:** (*str*) A visual string of emojis (e.g., 🟩, 🟨, ⬛).
