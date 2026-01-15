@@ -74,7 +74,7 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
 
     score_percentage = (highest_score / total_score) * 100
 
-    if penalty == True and len(result) > 0:
+    if penalty:
         penalty_multiplier = (1 - penalty_rate) ** (len(result) - 1)
         score_percentage *= penalty_multiplier
 
