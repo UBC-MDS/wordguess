@@ -60,6 +60,8 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
         raise ValueError("Result strings must only contain characters '0', '1', and '2'.")
     if len(set(len(r) for r in result)) > 1:
         raise ValueError("All result strings must have the same length.")
+    if not result:
+        raise ValueError("Result list must not be empty.")
 
     total_score = len(result[0]) * 2 
     highest_score = 0
