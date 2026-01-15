@@ -29,8 +29,8 @@ def get_result(target: str, guess: str, corpus: list = minidict) -> str:
         If target or guess are not strings.
     ValueError
         If target and guess have different lengths.
+        If the target is not found in the corpus.
         If the guess is not found in the corpus.
-
     Examples
     --------
     >>> get_result("apple", "apply")
