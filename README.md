@@ -22,7 +22,7 @@ The `wordguess` package is designed for developers to create guessing games. The
 You can install this package into your preferred Python environment using pip:
 
 ```bash
-$ pip install wordguess
+$ pip install git+https://github.com/UBC-MDS/wordguess.git
 ```
 
 To use `wordguess` in your code:
