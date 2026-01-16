@@ -35,7 +35,6 @@ def result_to_pattern(result: str) -> str:
     invalid_chars = set(result) - allowed_chars
     if invalid_chars: # checks if there are other characters in result
         raise ValueError(f"Input contains invalid characters: {invalid_chars}")
-		
     pattern_dict = {'0': "\u2B1B",
                     '1': "\U0001F7E8",
                     '2': "\U0001F7E9"}
