@@ -28,7 +28,14 @@ def result_to_pattern(result: str) -> str:
     >>> result_to_pattern("0001221")
     "⬛⬛⬛🟨🟩🟩🟨"
     """
-
-    # print("\u2B1B") # ⬛ grey square
-    # print("\U0001F7E8") # 🟨 yellow square
-    # print("\U0001F7E9") # 🟩 green square
+    if not isinstance(result, str): # checks that input is of `str` type
+        raise TypeError(f"Expected the input to be of type str, got {type(result)}")
+    
+    allowed_chars = {'0', '1', '2'} # only characters allowed in input string
+    invalid_chars = set(result) - allowed_chars
+    if invalid_chars: # checks if there are other characters in result
+        raise ValueError(f"Input contains invalid characters: {''.join(sorted(invalid_chars))}")
+    pattern_dict = {'0': "\u2B1B",
+                    '1': "\U0001F7E8",
+                    '2': "\U0001F7E9"}
+    return "".join(pattern_dict[char] for char in result)
