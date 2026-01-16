@@ -38,8 +38,4 @@ def result_to_pattern(result: str) -> str:
     pattern_dict = {'0': "\u2B1B",
                     '1': "\U0001F7E8",
                     '2': "\U0001F7E9"}
-    pattern = ""
-    for char in result:
-        pattern += pattern_dict[char]
-    
-    return pattern
+    return "".join(pattern_dict[char] for char in result)
