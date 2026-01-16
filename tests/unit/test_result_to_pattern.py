@@ -6,7 +6,7 @@ from wordguess.result_to_pattern import result_to_pattern
 
 def test_result_to_pattern():
     """
-    Test that string_to_pattern works as expected.
+    Test that result_to_pattern works as expected.
     """
     result_1 = "01210"
     expected_1 = "⬛🟨🟩🟨⬛"
@@ -25,7 +25,7 @@ def test_result_to_pattern():
     
 def test_result_to_pattern_input_type():
     """
-    Test that string_to_pattern throws an error when the
+    Test that result_to_pattern throws an error when the
     input is the incorrect type (i.e., not a string).
     """
     result_1 = 12100
@@ -42,7 +42,7 @@ def test_result_to_pattern_input_type():
 
 def test_result_to_pattern_chars():
     """
-    Test that string_to_pattern throws an error when the
+    Test that result_to_pattern throws an error when the
     input contains characters other than '0', '1' or '2'.
     """
     result_1 = "12300"
