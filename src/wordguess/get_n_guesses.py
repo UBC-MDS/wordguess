@@ -1,5 +1,49 @@
 from ._internals import minidict
+import random
 
+def check_dict_validity(result_hist, corpus=minidict):
+
+    for guess, result in result_hist.items():
+        if not isinstance(guess, str) or not isinstance(result, str):
+            raise TypeError(f"Passed key-value pair {guess}-{result} is not of type `string`")
+        if len(guess) != len(result):
+            raise ValueError(f"result '{result}' length does not match input length for '{guess}'")
+        if len(guess) == 0:
+            raise ValueError(f"Zero length strings passed")
+        if guess not in minidict:
+            raise ValueError(f"The guess '{guess}' is not present in the corpus")
+
+    zeros = []
+    ones = []
+    final_target = [None for _ in range(len(guess))]
+    
+    str_len = len(guess)
+
+    for guess, result in result_hist.items():
+        guess = guess.lower()
+        result = result.lower()
+        for pos in range(len(guess)):
+            letter = guess[pos]
+            res = result[pos]
+            if res == 0:
+                if letter in ones or letter in final_target:
+                    raise ValueError(f"Character {letter} has inconsistent history, presence ambiguity in {guess}")
+                if letter not in zeros:
+                    zeros.append(letter)
+            if res == 1:
+                if letter in zeros:
+                    raise ValueError(f"Character {letter} has inconsistent history, presence ambiguity in {guess}")
+                if letter in final_target and pos == final_target.index(letter):
+                    raise ValueError(f"Character {letter} has inconsistent history, positional ambiguity in {guess}")
+                if letter not in ones:
+                    ones.append(letter)
+            if res == 2:
+                if final_target[pos] and final_target[pos] != letter:
+                    raise ValueError(f"Character {letter} conflicts with character {final_target[pos]} for position {pos}")
+                final_target[pos] = letter
+    if len(set(ones+final_target)) > str_len:
+        raise ValueError(f"Too many letters present in target")
+    return True
 
 def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> list:
     """
@@ -45,6 +89,43 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     >>> get_n_guesses(result_hist, n=2, corpus=corpus)
     ['shout', 'mount']
     """
-    # TODO: write checks for input
-    # TODO: write the function body
-    return corpus
+    # input types
+    if not isinstance(result_hist, dict):
+        raise TypeError(f"Passed `result_hist` was not a valid dictionary")
+    if not isinstance(n, int) and n>0:
+        raise TypeError(f"Passed `n` was not a positive integer")
+    if not isinstance(corpus, list[str]):
+        raise TypeError(f"Passed `corpus` was not a valid list of strings")
+    # check if result dict is valid
+    if not check_dict_validity(result_hist):
+        raise ValueError(f"Passed `result_hist` is not consistent")
+        
+    possible_guesses = []
+    for word in corpus:
+        valid = True
+        for guess, result in result_hist.items():
+            guess = guess.lower()
+            result = result.lower()
+            for pos in range(len(guess)):
+                letter = guess[pos]
+                res = result[pos]
+
+                if res == '0' and letter in word:
+                    valid = False
+                    break
+                elif res == '1':
+                    if letter not in word or letter == word[pos]:
+                        valid = False
+                        break
+                elif res == '2' and letter != word[pos]:
+                    valid = False
+                    break
+            if not valid:
+                break
+
+        if valid:
+            possible_guesses.append(word)
+            
+    if n and n<len(possible_guesses): 
+        return random.sample(possible_guesses, n)
+    return possible_guesses
