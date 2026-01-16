@@ -2,59 +2,72 @@
 # import sys
 # sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from wordguess.get_score import get_score
+import pytest
 
 def test_get_score_calculate():
-    # Test cases
-    assert get_score(["112", "022", "221"], True, 0.1) == 67.5 
-    assert get_score(["012", "122"], True, 0.1) == 75.0
-    assert get_score(["00000","21222","22222"],True, 0.1) == 81.0
-    # assert get_score([], True, 0.1) == 0
-    assert get_score(["002", "212", "222"], True, 0.3) == 49.0
+    result = ["112", "022", "221"]
+    penalty = True
+    penalty_rate = 0.1
+    expected_score = 67.5
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
+
+    result = ["012", "122"]
+    penalty = True
+    penalty_rate = 0.1
+    expected_score = 75.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
+
+    result = ["00000","21222","22222"]
+    penalty = True
+    penalty_rate = 0.1
+    expected_score = 81.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
+
+    result = ["00000","21222","22222"]
+    penalty = True
+    penalty_rate = 0.3
+    expected_score = 49.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
 
 def test_get_score_no_penalty():
-    assert get_score(["01122", "02222", "22222"]) == 100.0
-    assert get_score(["00000", "22222"]) == 100.0
-    assert get_score(["00000", "21222"]) == 90.0
+    result = ["01122", "02222", "22222"]
+    penalty = False
+    penalty_rate = 0.0
+    expected_score = 100.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
+
+    result = ["01122", "22222"]
+    penalty = False
+    penalty_rate = 0.0
+    expected_score = 100.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
+
+    result = ["00000", "21222"]
+    penalty = False
+    penalty_rate = 0.0
+    expected_score = 90.0
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
 
 def test_get_score_types():
-    try:
+    with pytest.raises(TypeError):
         get_score("not list")
-    except TypeError:
-        pass
-    else:
         assert False, "Expected TypeError for non-list input"
 
-    try:
+    with pytest.raises(TypeError):
         get_score([123, 456])
-    except TypeError:
-        pass
-    else:
         assert False, "Expected TypeError for non-string elements in list"
-    try:
+    with pytest.raises(TypeError):
         get_score(["012", "122"], penalty="yes")
-    except TypeError:
-        pass
-    else:
         assert False, "Expected TypeError for non-boolean penalty"
 
 def test_get_score_valid_strings():
-    try:
+    with pytest.raises(ValueError):
         get_score(["012", "12A2"])
-    except ValueError:
-        pass
-    else:
         assert False, "Expected ValueError for invalid characters in result strings"
-
-    try:
+    with pytest.raises(ValueError):
         get_score(["012", "1223"])
-    except ValueError:
-        pass
-    else:
-        assert False, "Expected ValueError for inconsistent string lengths"
-    try:
+        assert False, "Expected ValueError for inconsistent lengths of result strings"
+    with pytest.raises(ValueError):
         get_score(["012", "124"])
-    except ValueError:
-        pass
-    else:
         assert False, "Expected ValueError for invalid characters in result strings"
 
