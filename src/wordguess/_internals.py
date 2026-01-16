@@ -8,5 +8,5 @@ minidict = [
     "march", "noble", "other", "plain", "quiet", "ratio", "smart", "trust", "upper", "shout",
     "woman", "years", "angle", "beach", "crown", "drive", "exact", "flame", "green", "habit",
     "index", "logic", "money", "nurse", "offer", "patch", "quick", "royal", "scale", "thick",
-    "urban", "video", "worth", "extra", "basic", "clean", "focus", "happy", "ideal", "smile"
+    "urban", "video", "worth", "extra", "basic", "clean", "focus", "happy", "ideal", "smile","sloth"
 ]
