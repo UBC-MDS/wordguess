@@ -34,13 +34,8 @@ def result_to_pattern(result: str) -> str:
     allowed_chars = {'0', '1', '2'} # only characters allowed in input string
     invalid_chars = set(result) - allowed_chars
     if invalid_chars: # checks if there are other characters in result
-        raise ValueError(f"Input contains invalid characters: {invalid_chars}")
-		
+        raise ValueError(f"Input contains invalid characters: {''.join(sorted(invalid_chars))}")
     pattern_dict = {'0': "\u2B1B",
                     '1': "\U0001F7E8",
                     '2': "\U0001F7E9"}
-    pattern = ""
-    for char in result:
-        pattern += pattern_dict[char]
-    
-    return pattern
+    return "".join(pattern_dict[char] for char in result)
