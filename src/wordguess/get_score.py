@@ -37,6 +37,15 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     -------
     float
         The calculated score based on the result and penalty flag.
+        
+    Raises
+    ------
+    TypeError
+        If result is not a list of strings or penalty is not a boolean. 
+    ValueError
+        If result strings contain invalid characters.
+        If result strings do not have the same length.
+        If any result string is empty.
 
     Examples
     --------
@@ -50,4 +59,34 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     90.0
 
     """
-    ...
+    if not isinstance(result, list):
+        raise TypeError("Result must be a list of strings.")
+    if not all(isinstance(r, str) for r in result):
+        raise TypeError("All elements in result must be strings.")
+    if not isinstance(penalty, bool):
+        raise TypeError("Penalty must be a boolean value.")
+    if any(r == '' for r in result):
+        raise ValueError("All result strings must not be empty.")
+    if not all(all(c in '012' for c in r) for r in result):
+        raise ValueError("Result strings must only contain characters '0', '1', and '2'.")
+    if len(set(len(r) for r in result)) > 1:
+        raise ValueError("All result strings must have the same length.")  
+
+    total_score = len(result[0]) * 2 
+    highest_score = 0
+
+    for res in result:
+        current_score = sum(int(c) for c in res)
+        if current_score == total_score:
+            highest_score = current_score
+            break
+        if current_score > highest_score:
+            highest_score = current_score
+
+    score_percentage = (highest_score / total_score) * 100
+
+    if penalty:
+        penalty_multiplier = (1 - penalty_rate) ** (len(result) - 1)
+        score_percentage *= penalty_multiplier
+
+    return round(score_percentage, 2)
