@@ -2,6 +2,7 @@ from wordguess.get_score import get_score
 import pytest
 
 def test_get_score_calculate():
+    """Testing with sample results and penalties and comparing with expected score"""
     result = ["112", "022", "221"]
     penalty = True
     penalty_rate = 0.1
@@ -27,6 +28,7 @@ def test_get_score_calculate():
     assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
 
 def test_get_score_no_penalty():
+    """Testing case when no penalty is given"""
     result = ["01122", "02222", "22222"]
     penalty = False
     penalty_rate = 0.0
@@ -46,6 +48,10 @@ def test_get_score_no_penalty():
     assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
 
 def test_get_score_type_error():
+    """
+    Testing cases when input type is invalid,
+    expecting to throw corresponding errors
+    """
     with pytest.raises(TypeError, match="must be a list of strings"):
         get_score("not list")
 
@@ -59,6 +65,10 @@ def test_get_score_type_error():
         get_score(["012", "122"], penalty="yes")
 
 def test_get_score_value_error():
+    """
+    Testing when input type is valid but the values do not match the required values,
+    expecting to throw corresponding errors
+    """
     with pytest.raises(ValueError, match="must only contain characters"):
         get_score(["012", "1242"])
 
