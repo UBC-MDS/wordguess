@@ -45,26 +45,24 @@ def test_get_score_no_penalty():
     expected_score = 90.0
     assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score 
 
-def test_get_score_types():
-    with pytest.raises(TypeError):
+def test_get_score_type_error():
+    with pytest.raises(TypeError, match="must be a list of strings"):
         get_score("not list")
-        assert False, "Expected TypeError for non-list input"
 
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError, match="must be strings"):
         get_score([123, 456])
-        assert False, "Expected TypeError for non-string elements in list"
-    with pytest.raises(TypeError):
-        get_score(["012", "122"], penalty="yes")
-        assert False, "Expected TypeError for non-boolean penalty"
+        
+    with pytest.raises(TypeError, match="must be strings"):
+        get_score(["012", None])
 
-def test_get_score_valid_strings():
-    with pytest.raises(ValueError):
-        get_score(["012", "12A2"])
-        assert False, "Expected ValueError for invalid characters in result strings"
-    with pytest.raises(ValueError):
-        get_score(["012", "1223"])
-        assert False, "Expected ValueError for inconsistent lengths of result strings"
-    with pytest.raises(ValueError):
-        get_score(["012", "124"])
-        assert False, "Expected ValueError for invalid characters in result strings"
+    with pytest.raises(TypeError, match="must be a boolean value"):
+        get_score(["012", "122"], penalty="yes")
+
+def test_get_score_value_error():
+    with pytest.raises(ValueError, match="must only contain characters"):
+        get_score(["012", "1242"])
+
+    with pytest.raises(ValueError, match="must have the same length"):
+        get_score(["012", "1221"])
+
 
