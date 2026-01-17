@@ -51,7 +51,7 @@ def check_dict_validity(result_hist, corpus):
         if len(guess) != len(result):
             raise ValueError(f"result '{result}' length does not match input length for '{guess}'")
         if len(guess) == 0:
-            raise ValueError(f"Zero length strings passed")
+            raise ValueError("Zero length strings passed")
         if guess not in corpus:
             raise ValueError(f"The guess '{guess}' is not present in the corpus")
     
@@ -72,7 +72,8 @@ def check_dict_validity(result_hist, corpus):
             if guess[:pos].count(letter): 
                 letter=letter+str(guess[:pos].count(letter))
 
-            if res == '1': final_ones.append(letter)
+            if res == '1': 
+                final_ones.append(letter)
             if res == '2':
                 # check for positional conflict
                 if final_twos[pos] and final_twos[pos]!=letter:
@@ -85,8 +86,8 @@ def check_dict_validity(result_hist, corpus):
 
     # check if over constrained (too many letters)
     if len(set(final_ones+[x for x in final_twos if x is not None])) > len(guess):
-        print(set(final_ones+final_twos))
-        raise ValueError(f"Too many letters present in target")
+        # print(set(final_ones+final_twos))
+        raise ValueError("Too many letters present in target")
     
     # loop through all letters and check for inconsistency
     for letter, data in mem.items():
@@ -146,14 +147,13 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     """
     # input types
     if not isinstance(result_hist, dict):
-        raise TypeError(f"Passed `result_hist` was not a valid dictionary")
-    if n and (not isinstance(n, int) or n<0):
-        raise TypeError(f"Passed `n` was not a positive integer")
+        raise TypeError("Passed `result_hist` was not a valid dictionary")
+    if n is not None and (not isinstance(n, int) or n<0):
+        raise TypeError("Passed `n` was not a positive integer")
     if not isinstance(corpus, list):
-        raise TypeError(f"Passed `corpus` was not a valid list of strings")
+        raise TypeError("Passed `corpus` was not a valid list of strings")
     # check if result dict is valid
-    if not check_dict_validity(result_hist, corpus):
-        raise ValueError(f"Passed `result_hist` is not consistent")
+    check_dict_validity(result_hist, corpus)
         
     possible_guesses = []
     flag = False
@@ -215,5 +215,5 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     if n and n < len(possible_guesses): 
         return random.sample(possible_guesses, n)
     if not len(possible_guesses) and not flag:
-        raise ValueError(f"The target is not part of the corpus")
+        raise ValueError("The target is not part of the corpus")
     return possible_guesses
