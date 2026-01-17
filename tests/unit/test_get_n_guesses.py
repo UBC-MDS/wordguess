@@ -118,32 +118,50 @@ def test_wrong_position_constraint():
         assert 'c' in word, f"Word {word} doesn't contain 'c'"
         assert word[0] != 'c', f"Word {word} has 'c' at position 0"
 
+def test_correct_word_guesses():
+    result = get_n_guesses({"crane": "22222"}, corpus=minidict)
+    assert result == []
 
+def test_target_outside_corpus():
+    with pytest.raises(ValueError):
+        get_n_guesses({"crane": "22211"}, corpus=minidict)
+        
 # ---------- Multiple constraints ----------
 
 def test_multiple_guess_constraints():
     result_hist = {
-        "crane": "01200",
-        "sloth": "10020"
+        "repay": "10000",
+        "print": "01001",
+        "motor": "02101"
     }
+    
 
     result = get_n_guesses(result_hist, corpus=minidict)
 
     for word in result:
-        # From crane: c, n, e not in word; r in word but not pos 1; a at pos 2
-        assert 'c' not in word
-        assert 'n' not in word
+        assert 'r' in word
+        assert word[0] != 'r'
         assert 'e' not in word
-        assert word[2] == 'a'
-        if 'r' in word:
-            assert word[1] != 'r'
-        # From sloth: l, o, h not in word; s in word but not pos 0; t at pos 3
-        assert 'l' not in word
-        assert 'o' not in word
-        assert 'h' not in word
-        assert word[3] == 't'
-        if 's' in word:
-            assert word[0] != 's'
+        assert 'p' not in word
+        assert 'a' not in word
+        assert 'y' not in word
+        
+        assert word[1] != 'r'
+        assert 'i' not in word
+        assert 'n' not in word
+        assert 't' in word
+        assert word[4] != 't'
+        
+        assert 'm' not in word
+        assert word[1] == 'o'
+        assert word[2] != 't'
+        assert word[3] != 'o'
+        
+        assert word.count('o') == 1
+        
+    assert "repay" not in result
+    assert "print" not in result
+    assert "motor" not in result
 
 
 # ---------- n parameter behavior ----------
@@ -151,9 +169,6 @@ def test_multiple_guess_constraints():
 def test_n_parameter():
     assert len(get_n_guesses({}, n=10, corpus=minidict)) == 10
     assert len(get_n_guesses({}, n=1, corpus=minidict)) == 1
-
-    # only one possible target, but removed from guesses
-    assert get_n_guesses({"crane": "22222"}, n=100, corpus=minidict) == []
 
     with pytest.raises(TypeError):
         get_n_guesses({}, n=1.0)
@@ -192,11 +207,12 @@ def test_triple_letter_constraint():
         assert word[0] == 'e' and word[1] == 'e'
 
 def test_same_letter_different_positions():
-    corpus_test = ["speed", "sleep", "sweep", "creep", "breed"]
+    corpus_test = ["speed", "sleep", "sweep", "creep", "breed", "xyeze"]
     
     # 'e' at position 2 is correct, 'e' at position 3 is not
     result = get_n_guesses({"speed": "00210"}, corpus=corpus_test)
     
     for word in result:
         assert word[2] == 'e'
-        assert word.count('e') == 1  # Only one 'e' total
+        assert word[3] != 'e'
+        assert word.count('e') >= 2

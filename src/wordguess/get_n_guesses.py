@@ -2,7 +2,48 @@ from ._internals import minidict
 import random
 from collections import defaultdict
 
-def check_dict_validity(result_hist, corpus=minidict):
+def check_dict_validity(result_hist, corpus):
+    """
+    Internal function to check validity of result_hist. This function performs 
+    validation of a dictionary mapping guessed words to their result strings 
+    (composed of '0', '1', '2').
+
+    The following conditions are checked:
+
+    1. All keys and values are non-empty strings of equal length.
+    2. All guesses exist in the provided corpus.
+    3. No conflicting positional assignments for letters marked as correct ('2').
+    4. The total number of distinct present letters (from '1' and '2') does not
+       exceed the word length.
+    5. No letter is simultaneously marked as absent ('0') and present ('1' or '2').
+    6. No letter is marked as both misplaced ('1') and correctly placed ('2') at
+       the same position across guesses.
+    7. Duplicate letters are disambiguated by index-based tagging (e.g., e, e1, e2)
+       to allow consistent constraint checking.
+
+    Parameters
+    ----------
+    result_hist : dict
+        Dictionary mapping guessed words to result strings of equal length,
+        consisting only of characters '0', '1', and '2'
+    corpus : list
+        List of valid words that guesses must belong to.
+
+    Returns
+    -------
+    bool
+        True if the result history is internally consistent.
+
+    Raises
+    ------
+    TypeError
+        If any key or value in result_hist is not a string.
+
+    ValueError
+        If any of the structural or logical consistency checks fail, including
+        length mismatches, unknown words, positional conflicts, presence
+        ambiguities, or over-constrained letter counts.
+    """
     guess = ""
     for guess, result in result_hist.items():
         if not isinstance(guess, str) or not isinstance(result, str):
@@ -43,7 +84,8 @@ def check_dict_validity(result_hist, corpus=minidict):
             mem[letter].append((pos, res))
 
     # check if over constrained (too many letters)
-    if len(set(final_ones+final_twos)) > len(guess):
+    if len(set(final_ones+[x for x in final_twos if x is not None])) > len(guess):
+        print(set(final_ones+final_twos))
         raise ValueError(f"Too many letters present in target")
     
     # loop through all letters and check for inconsistency
@@ -114,13 +156,15 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
         raise ValueError(f"Passed `result_hist` is not consistent")
         
     possible_guesses = []
+    flag = False
     for word in corpus:
         valid = True
         for guess, result in result_hist.items():
             guess = guess.lower()
             result = result.lower()
             word_lower = word.lower()
-            
+            if all(x == '2' for x in result):
+                flag=True
             # Count letter requirements
             min_letter_counts = defaultdict(int)
             max_letter_counts = defaultdict(lambda: float('inf'))
@@ -170,4 +214,6 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     
     if n and n < len(possible_guesses): 
         return random.sample(possible_guesses, n)
+    if not len(possible_guesses) and not flag:
+        raise ValueError(f"The target is not part of the corpus")
     return possible_guesses
