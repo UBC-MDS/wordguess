@@ -43,7 +43,9 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     TypeError
         If result is not a list of strings or penalty is not a boolean. 
     ValueError
-        If result strings contain invalid characters or are of inconsistent lengths.
+        If result strings contain invalid characters.
+        If result strings do not have the same length.
+        If any result string is empty.
 
     Examples
     --------
@@ -63,10 +65,12 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
         raise TypeError("All elements in result must be strings.")
     if not isinstance(penalty, bool):
         raise TypeError("Penalty must be a boolean value.")
+    if any(r == '' for r in result):
+        raise ValueError("All result strings must not be empty.")
     if not all(all(c in '012' for c in r) for r in result):
         raise ValueError("Result strings must only contain characters '0', '1', and '2'.")
     if len(set(len(r) for r in result)) > 1:
-        raise ValueError("All result strings must have the same length.")
+        raise ValueError("All result strings must have the same length.")  
 
     total_score = len(result[0]) * 2 
     highest_score = 0

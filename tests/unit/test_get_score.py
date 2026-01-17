@@ -64,5 +64,8 @@ def test_get_score_value_error():
 
     with pytest.raises(ValueError, match="must have the same length"):
         get_score(["012", "1221"])
+    
+    with pytest.raises(ValueError, match="must not be empty"):
+        get_score(["012", ""])
 
 
