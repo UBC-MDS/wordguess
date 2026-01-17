@@ -47,14 +47,14 @@ To use `wordguess` in your code:
     * **corpus** (*list*, optional): A list of valid words for validation. Defaults to `minidict`.
   * **Returns:** (*str*) A string of digits ('0', '1', '2') mapping the relationship between letters.
 
-* `get_score(target, guess, corpus=minidict)`
+* `get_score(result, penalty=False, penalty_rate=0.0)`
   * **Location:** `/src/wordguess/get_score.py`
-  * **Description:** Calculates a numerical `score` representing the "goodness" of a guess.
+  * **Description:** Calculates a numerical `score` representing the "goodness" of a series of `result`s.
   * **Parameters:**
-    * **target** (*str*): The secret word to be guessed.
-    * **guess** (*str*): The player's attempt.
-    * **corpus** (*list*, optional): Validation list. Defaults to `minidict`.
-  * **Returns:** (*int*) The calculated score based on position and letter matches.
+    * **result** (*list[str]*): A list of `result` strings from previous guesses.
+    * **penalty** (*bool*, optional): Whether to apply a penalty for incorrect guesses. Defaults to `False`.
+    * **penalty_rate** (*float*, optional): The rate at which penalties are applied. Defaults to `0.0`.
+  * **Returns:** (*float*) A score between 0 and 100.
 
 * `get_n_guesses(result_hist, n, corpus)`
   * **Location:** `/src/wordguess/get_n_guesses.py`
