@@ -60,7 +60,7 @@ To use `wordguess` in your code:
   * **Location:** `/src/wordguess/get_score.py`
   * **Description:** Calculates a numerical `score` representing the "goodness" of a series of `result`s.
   * **Parameters:**
-    * **result** (*list[str]*): A list of `result` strings from previous guesses.
+    * **result** (*list of str*): A list of `result` strings from previous guesses.
     * **penalty** (*bool*, optional): Whether to apply a penalty for incorrect guesses. Defaults to `False`.
     * **penalty_rate** (*float*, optional): The rate at which penalties are applied. Defaults to `0.0`.
   * **Returns:** (*float*) A score between 0 and 100.
