@@ -19,24 +19,32 @@ The `wordguess` package is designed for developers to create guessing games. The
 * Harry Yau
 
 ## Get started
-You can install this package into your preferred Python environment using pip:
+You can install this package into your preferred Python environment by cloning the repo, opening a bash terminal and install using pip:
 
 ```bash
-$ pip install wordguess
+$ pip install -e .
 ```
 
 To use wordguess in your code:
 
 ```python
->>> import wordguess
->>> wordguess.get_result("spark", "spoon")
+>>> from wordguess.get_result import get_result
+>>> get_result("spark", "spoon")
 ```
-
+```python
+>>> from wordguess.get_n_guesses import get_n_guesses
+>>> from wordguess.get_result import get_result
+>>> 
+>>> result_hist = {}
+>>> for word in ['whelp','might','madam']:
+>>>    result_hist[word] = get_result('major',word)
+>>>    get_n_guesses(result_hist, n=10)
+```
 ## Dataset & user functions
 
 * Dataset: `minidict` (*list*)
   * **Location:** `/src/wordguess/_internals.py`
-  * **Description:** A default list of 100 common English words, each five letters in length. This serves as the fallback `corpus` for all functions unless a custom list is provided.
+  * **Description:** A default list of ~600 common English words, each five letters in length. This serves as the fallback `corpus` for all functions unless a custom list is provided.
 
 * `get_result(target, guess, corpus=minidict)`
   * **Location:** `/src/wordguess/get_result.py`
