@@ -1,5 +1,6 @@
 from ._internals import minidict
 import random
+from collections import defaultdict
 
 def check_dict_validity(result_hist, corpus=minidict):
     guess = ""
@@ -12,12 +13,13 @@ def check_dict_validity(result_hist, corpus=minidict):
             raise ValueError(f"Zero length strings passed")
         if guess not in corpus:
             raise ValueError(f"The guess '{guess}' is not present in the corpus")
-
-    zeros = []
-    ones = dict()
-    final_target = [None for _ in range(len(guess))]
     
-    str_len = len(guess)
+    # keeping a letter-by-letter map
+    mem = defaultdict(list)
+
+    # keeping a word map
+    final_ones = []
+    final_twos = [None for _ in range(len(guess))]
 
     for guess, result in result_hist.items():
         guess = guess.lower()
@@ -25,28 +27,35 @@ def check_dict_validity(result_hist, corpus=minidict):
         for pos in range(len(guess)):
             letter = guess[pos]
             res = result[pos]
-            if res == '0':
-                if letter in ones or letter in final_target:
-                    raise ValueError(f"Character {letter} has inconsistent history, presence ambiguity in {guess}")
-                if letter not in zeros:
-                    zeros.append(letter)
-            if res == '1':
-                if letter in zeros:
-                    raise ValueError(f"Character {letter} has inconsistent history, presence ambiguity in {guess}")
-                if letter in final_target and pos == final_target.index(letter):
-                    raise ValueError(f"Character {letter} has inconsistent history, positional ambiguity in {guess}")
-                if letter not in ones:
-                    ones[letter]=pos
+            # handling duplicate letter. Eg. speed will be coded with e and e1
+            if guess[:pos].count(letter): 
+                letter=letter+str(guess[:pos].count(letter))
+
+            if res == '1': final_ones.append(letter)
             if res == '2':
-                if final_target[pos] and final_target[pos] != letter:
-                    raise ValueError(f"Character {letter} conflicts with character {final_target[pos]} for position {pos}")
-                if letter in zeros:
-                    raise ValueError(f"Character {letter} has inconsistent history, presence ambiguity in {guess}")
-                if letter in ones and ones[letter]==pos:
-                    raise ValueError(f"Character {letter} has inconsistent history, positional ambiguity in {guess}")
-                final_target[pos] = letter
-    if len(set(list(ones.keys())+final_target)) > str_len:
+                # check for positional conflict
+                if final_twos[pos] and final_twos[pos]!=letter:
+                    raise ValueError(f"Positional Conflict between {letter} and {final_twos[pos]} at position {pos}")
+                else:
+                    final_twos[pos]=letter
+
+            # add to mem for this letter
+            mem[letter].append((pos, res))
+
+    # check if over constrained (too many letters)
+    if len(set(final_ones+final_twos)) > len(guess):
         raise ValueError(f"Too many letters present in target")
+    
+    # loop through all letters and check for inconsistency
+    for letter, data in mem.items():
+        zeros = [x[0] for x in data if x[1] == '0']
+        ones = [x[0] for x in data if x[1] == '1']
+        twos =  [x[0] for x in data if x[1] == '2']
+        if zeros and ones or zeros and twos:
+            raise ValueError(f"Presence ambiguity in letter {letter[:1]}")
+        if bool(set(ones) & set(twos)):
+            raise ValueError(f"Positional ambiguity in letter {letter[:1]}")
+    
     return True
 
 def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> list:
@@ -110,28 +119,55 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
         for guess, result in result_hist.items():
             guess = guess.lower()
             result = result.lower()
+            word_lower = word.lower()
+            
+            # Count letter requirements
+            min_letter_counts = defaultdict(int)
+            max_letter_counts = defaultdict(lambda: float('inf'))
+            
             for pos in range(len(guess)):
                 letter = guess[pos]
                 res = result[pos]
-
-                if res == '0' and letter in word:
-                    valid = False
-                    break
-                elif res == '1':
-                    if letter not in word or letter == word[pos]:
+                
+                if res in ['1', '2']:
+                    min_letter_counts[letter] += 1
+                elif res == '0':
+                    # '0' means this specific occurrence is excess
+                    # Set max to the count of '1's and '2's for this letter
+                    max_letter_counts[letter] = min_letter_counts[letter]
+            
+            # Check positional constraints
+            for pos in range(len(guess)):
+                letter = guess[pos]
+                res = result[pos]
+                
+                if res == '1':
+                    if letter not in word_lower or word_lower[pos] == letter:
                         valid = False
                         break
-                elif res == '2' and letter != word[pos]:
-                    valid = False
-                    break
+                elif res == '2':
+                    if word_lower[pos] != letter:
+                        valid = False
+                        break
+            
+            # Check count constraints
+            if valid:
+                for letter in set(guess):
+                    count = word_lower.count(letter)
+                    if count < min_letter_counts[letter] or count > max_letter_counts[letter]:
+                        valid = False
+                        break
+            
             if not valid:
                 break
 
         if valid:
             possible_guesses.append(word)
+    
     for guess in result_hist:
         while guess in possible_guesses:
             possible_guesses.remove(guess)
-    if n and n<len(possible_guesses): 
+    
+    if n and n < len(possible_guesses): 
         return random.sample(possible_guesses, n)
     return possible_guesses
