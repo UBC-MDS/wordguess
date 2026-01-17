@@ -31,3 +31,4 @@ All notable changes to this project will be documented in this file.
 - Added tests for `get_n_guesses`
 - Added tests for `get_score`
 - Added tests for `result_to_pattern`
+- Added package-level imports in `__init__.py`
