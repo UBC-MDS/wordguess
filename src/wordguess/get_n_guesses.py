@@ -123,7 +123,7 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
         A dictionary mapping previously guessed words to their
         corresponding result strings composed of '0', '1', and '2'.
     n : int (optional)
-        The number of valid guesses to return.
+        The maximum number of valid guesses to return.
         If None, all valid guesses are returned.
     corpus : list (optional)
         A list of all allowed words to consider as possible targets.
@@ -132,6 +132,15 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     -------
     list: A list of words from the corpus that are consistent with the result history.
 
+    Raises
+    ------
+    TypeError
+        If result_hist is not a dictionary.
+        If n is not a positive integer or None.
+        If corpus is not a list of strings.
+    ValueError
+        If result_hist is internally inconsistent.
+    
     See Also
     --------
     get_result : A function that generate the result string for a given guess against a target word.

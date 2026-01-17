@@ -22,7 +22,7 @@ The `wordguess` package is designed for developers to create guessing games. The
 You can install this package into your preferred Python environment using pip:
 
 ```bash
-$ pip install git+https://github.com/UBC-MDS/wordguess.git
+pip install git+https://github.com/UBC-MDS/wordguess.git
 ```
 
 To use `wordguess` in your code:
@@ -33,13 +33,12 @@ To use `wordguess` in your code:
 ```
 
 ```python
->>> from wordguess.get_n_guesses import get_n_guesses
->>> from wordguess.get_result import get_result
+>>> import wordguess as wg
 >>> 
 >>> result_hist = {}
 >>> for word in ['whelp','might','madam']:
->>>   result_hist[word] = get_result('major',word)
->>>   get_n_guesses(result_hist, n=10)
+>>>     result_hist[word] = wg.get_result('major', word)
+>>>     wg.get_n_guesses(result_hist, n=10)
 ```
 
 ## Dataset & user functions
@@ -71,7 +70,7 @@ To use `wordguess` in your code:
   * **Description:** Returns all possible target words consistent with the result history.
   * **Parameters:**
     * **result_hist** (*dict*): A dictionary mapping previously guessed words to their corresponding results.
-    * **n** (*int*, optional): The number of relative words to return.
+    * **n** (*int*, optional): The maximum number of relative words to return.
     * **corpus** (*list*, optional): The library of words to search. Defaults to `minidict`.
   * **Returns:** (*list*) A list of the top `n` strings.
 
