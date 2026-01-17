@@ -22,7 +22,7 @@ The `wordguess` package is designed for developers to create guessing games. The
 You can install this package into your preferred Python environment using pip:
 
 ```bash
-$ pip install git+https://github.com/UBC-MDS/wordguess.git
+pip install git+https://github.com/UBC-MDS/wordguess.git
 ```
 
 To use `wordguess` in your code:
@@ -33,13 +33,12 @@ To use `wordguess` in your code:
 ```
 
 ```python
->>> from wordguess.get_n_guesses import get_n_guesses
->>> from wordguess.get_result import get_result
+>>> import wordguess as wg
 >>> 
 >>> result_hist = {}
 >>> for word in ['whelp','might','madam']:
->>>   result_hist[word] = get_result('major',word)
->>>   get_n_guesses(result_hist, n=10)
+>>>     result_hist[word] = wg.get_result('major', word)
+>>>     wg.get_n_guesses(result_hist, n=10)
 ```
 
 ## Dataset & user functions
@@ -61,7 +60,7 @@ To use `wordguess` in your code:
   * **Location:** `/src/wordguess/get_score.py`
   * **Description:** Calculates a numerical `score` representing the "goodness" of a series of `result`s.
   * **Parameters:**
-    * **result** (*list[str]*): A list of `result` strings from previous guesses.
+    * **result** (*list of str*): A list of `result` strings from previous guesses.
     * **penalty** (*bool*, optional): Whether to apply a penalty for incorrect guesses. Defaults to `False`.
     * **penalty_rate** (*float*, optional): The rate at which penalties are applied. Defaults to `0.0`.
   * **Returns:** (*float*) A score between 0 and 100.
@@ -71,7 +70,7 @@ To use `wordguess` in your code:
   * **Description:** Returns all possible target words consistent with the result history.
   * **Parameters:**
     * **result_hist** (*dict*): A dictionary mapping previously guessed words to their corresponding results.
-    * **n** (*int*, optional): The number of relative words to return.
+    * **n** (*int*, optional): The maximum number of relative words to return.
     * **corpus** (*list*, optional): The library of words to search. Defaults to `minidict`.
   * **Returns:** (*list*) A list of the top `n` strings.
 
@@ -92,7 +91,7 @@ To ensure consistency for **users** (developers) and **players** (end-users), th
 | **Player** | The person playing the word-guessing game. |
 | **Target** | The specific word chosen to be guessed. |
 | **Guess** | The string submitted by the player to match the target. |
-| **Corpus / Dataset** | A list of English words (like `minidict`) used as the search space. |
+| **Corpus / Dataset** | A list of words (like `minidict`) used as the search space. |
 | **Result** | A string of 0, 1, 2 indicating letter status (0=None, 1=Wrong Spot, 2=Correct). |
 | **Pattern** | The visual, emoji-based representation of a **Result**. |
 | **Score** | A numerical value quantifying how close a **Guess** is to a **Target**. |
