@@ -2,7 +2,11 @@ import pytest
 from wordguess.get_n_guesses import get_n_guesses
 from wordguess._internals import minidict
 
+# Claude Sonnet4.5 was used to generate sample result_hist dictionaries for various cases
+# and write assert statements for lengthier cases
+
 def test_invalid_result_histories():
+    """Checking Invalid Input type for result history throws error"""
     # ---------- Invalid input structure ----------
     with pytest.raises(TypeError):
         get_n_guesses(['hello','10001'])
@@ -24,6 +28,7 @@ def test_invalid_result_histories():
 # ---------- Consistency conflicts ----------
 
 def test_result_history_conflicts():
+    """Checking conflicting result histories throw error"""
     # ---------- Conflict 2 to 1 ----------
     with pytest.raises(ValueError):
         get_n_guesses({
@@ -91,12 +96,14 @@ def test_result_history_conflicts():
 # ---------- Basic filtering behavior ----------
 
 def test_empty_history_returns_all():
+    """Checking unconstrained case returns all possible values"""
     # returns whole corpus for empty history
     result = get_n_guesses({}, corpus=minidict)
     assert set(result) == set(minidict)
 
 
 def test_single_zero_constraint():
+    """Checking case with all 0's"""
     result = get_n_guesses({"crane": "00000"}, corpus=minidict)
     for word in result:
         assert 'c' not in word
@@ -107,28 +114,33 @@ def test_single_zero_constraint():
 
 
 def test_correct_position_constraint():
+    """Checking case with one 2"""
     result = get_n_guesses({"crane": "20000"}, corpus=minidict)
     for word in result:
         assert word[0] == 'c', f"Word {word} doesn't have 'c' at position 0"
 
 
 def test_wrong_position_constraint():
+    """Checking case with one 1"""
     result = get_n_guesses({"crane": "10000"}, corpus=minidict)
     for word in result:
         assert 'c' in word, f"Word {word} doesn't contain 'c'"
         assert word[0] != 'c', f"Word {word} has 'c' at position 0"
 
 def test_correct_word_guesses():
+    """Checking case with all 2's does not suggest anything"""
     result = get_n_guesses({"crane": "22222"}, corpus=minidict)
     assert result == []
 
 def test_target_outside_corpus():
+    """Checking case when target is not guessed but no valid answer is left in corpus"""
     with pytest.raises(ValueError):
         get_n_guesses({"crane": "22211"}, corpus=minidict)
         
 # ---------- Multiple constraints ----------
 
 def test_multiple_guess_constraints():
+    """Checking regular use case with many constraints"""
     result_hist = {
         "repay": "10000",
         "print": "01001",
@@ -159,6 +171,7 @@ def test_multiple_guess_constraints():
         
         assert word.count('o') == 1
         
+    # checking already guessed words arent present
     assert "repay" not in result
     assert "print" not in result
     assert "motor" not in result
@@ -167,6 +180,7 @@ def test_multiple_guess_constraints():
 # ---------- n parameter behavior ----------
 
 def test_n_parameter():
+    """Checking different values of n and wrong input types of n"""
     assert len(get_n_guesses({}, n=10, corpus=minidict)) == 10
     assert len(get_n_guesses({}, n=1, corpus=minidict)) == 1
 
@@ -178,6 +192,10 @@ def test_n_parameter():
 # ---------- Duplicate-letter logic ----------
 
 def test_repeated_letter_handling():
+    """
+    Checking edge cases where duplicate letters are present in result hist
+    Case where one letter is 2 and one is 0
+    """
     corpus_test = ["speak", "speed", "spear"]
     result_hist = {"speed": "22200"}
 
@@ -186,10 +204,12 @@ def test_repeated_letter_handling():
     assert "speak" in result
 
 def test_duplicate_letters_partial_match():
-    # When a word has duplicate letters and only some are marked
+    """
+    Checking edge cases where duplicate letters are present in result hist
+    Case where one letter is 2 and one is 1
+    """
     corpus_test = ["speed", "steel", "sleep", "creep", "peere"]
     
-    # 'e' appears twice: first 'e' is wrong position (1), second 'e' is correct (2)
     result = get_n_guesses({"speed": "01210"}, corpus=corpus_test)
     
     for word in result:
@@ -197,22 +217,28 @@ def test_duplicate_letters_partial_match():
         assert word[2] == 'e', f"{word} should have 'e' at position 2"
         assert word[3] != 'e', f"{word} should not have 'e' at position 3"
 
+def test_same_letter_different_positions():
+    """
+    Checking edge cases where duplicate letters are present in result hist
+    Case where one letter is 1 and one is 0
+    """
+    corpus_test = ["speed", "sleep", "sweep", "creep", "breed", "xyzea"]
+    
+    result = get_n_guesses({"speed": "00100"}, corpus=corpus_test)
+    
+    for word in result:
+        assert word[2] != 'e'
+        assert word.count('e') == 1
+
 def test_triple_letter_constraint():
+    """
+    Checking edge cases where triple letters are present in result hist
+    Case where two letters are 2 and one is 0
+    """
     corpus_test = ["eerie", "eagle", "empty", "error", "eeres","eenlr"]
     
-    # If we mark two 'e's as present but get '0' on others
     result = get_n_guesses({"eerie": "22100"}, corpus=corpus_test)
     for word in result:
         assert word.count('e') == 2, f"{word} should have exactly 2 'e's"
         assert word[0] == 'e' and word[1] == 'e'
 
-def test_same_letter_different_positions():
-    corpus_test = ["speed", "sleep", "sweep", "creep", "breed", "xyeze"]
-    
-    # 'e' at position 2 is correct, 'e' at position 3 is not
-    result = get_n_guesses({"speed": "00210"}, corpus=corpus_test)
-    
-    for word in result:
-        assert word[2] == 'e'
-        assert word[3] != 'e'
-        assert word.count('e') >= 2
