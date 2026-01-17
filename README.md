@@ -91,7 +91,7 @@ To ensure consistency for **users** (developers) and **players** (end-users), th
 | **Player** | The person playing the word-guessing game. |
 | **Target** | The specific word chosen to be guessed. |
 | **Guess** | The string submitted by the player to match the target. |
-| **Corpus / Dataset** | A list of English words (like `minidict`) used as the search space. |
+| **Corpus / Dataset** | A list of words (like `minidict`) used as the search space. |
 | **Result** | A string of 0, 1, 2 indicating letter status (0=None, 1=Wrong Spot, 2=Correct). |
 | **Pattern** | The visual, emoji-based representation of a **Result**. |
 | **Score** | A numerical value quantifying how close a **Guess** is to a **Target**. |
