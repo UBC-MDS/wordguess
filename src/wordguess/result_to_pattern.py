@@ -17,6 +17,13 @@ def result_to_pattern(result: str) -> str:
     Returns
     -------
     str: The corresponding human-readable string pattern composed of UTF-8 colored symbols.
+    
+    Raises
+    ------
+    TypeError
+        If result is not of type str.
+    ValueError
+        If result contains characters other than '0', '1' and '2'.
 
     See Also
     --------
