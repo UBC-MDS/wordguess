@@ -31,20 +31,22 @@ To use `wordguess` in your code:
 >>> from wordguess.get_result import get_result
 >>> get_result("spark", "spoon")
 ```
+
 ```python
 >>> from wordguess.get_n_guesses import get_n_guesses
 >>> from wordguess.get_result import get_result
 >>> 
 >>> result_hist = {}
 >>> for word in ['whelp','might','madam']:
->>>    result_hist[word] = get_result('major',word)
->>>    get_n_guesses(result_hist, n=10)
+>>>   result_hist[word] = get_result('major',word)
+>>>   get_n_guesses(result_hist, n=10)
 ```
+
 ## Dataset & user functions
 
 * Dataset: `minidict` (*list*)
   * **Location:** `/src/wordguess/_internals.py`
-  * **Description:** A default list of ~600 common English words, each five letters in length. This serves as the fallback `corpus` for all functions unless a custom list is provided.
+  * **Description:** A default list of more than 600 valid and non-valid English words, each five letters in length. This serves as the fallback `corpus` for all functions unless a custom list is provided.
 
 * `get_result(target, guess, corpus=minidict)`
   * **Location:** `/src/wordguess/get_result.py`
