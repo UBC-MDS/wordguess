@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # Build only, don't publish
+      - otter
   workflow_dispatch:  # Manual trigger
 
 jobs:
