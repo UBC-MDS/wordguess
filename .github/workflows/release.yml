@@ -5,8 +5,7 @@ on:
   push:
     branches:
       - main
-  release:
-    types: [published]
+  workflow_dispatch:
 
 jobs:
   # Setup build separate from publish for added security
@@ -31,12 +30,11 @@ jobs:
 
       - name: Install hatch
         run: |
-            python -m pip install --upgrade pip
-            python -m pip install hatch
+            python -m pip install -e .[dev]
 
       - name: Build package using Hatch
         run: |
-            hatch run build:check
+            hatch build
 
             echo ""
             echo "Generated files:"
@@ -50,7 +48,7 @@ jobs:
           if-no-files-found: error
   publish:
     name: >-
-      Publish Python 🐍 distribution 📦 to PyPI
+      Publish Python distribution to PyPI
     # Only publish to PyPI with a release trigger in your repository.
     if: github.repository_owner == 'UBC-MDS' && github.event_name == 'release'
     needs:
@@ -74,3 +72,6 @@ jobs:
         # Only publish to real PyPI on release. This action uses sigstore for additional security.
         if: github.event_name == 'release' && github.event.action == 'published'
         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e #v1.13.0
+        with:
+          repository-url: https://test.pypi.org/project/wordguess/
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
