@@ -78,4 +78,8 @@ def test_get_score_value_error():
     with pytest.raises(ValueError, match="must not be empty"):
         get_score(["012", ""])
 
+def test_get_score_empty_result():
+    """Testing when result list is empty"""
+    with pytest.raises(ValueError, match="result list must not be empty"):
+        get_score([])
 
