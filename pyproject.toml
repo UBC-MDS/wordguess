@@ -64,6 +64,10 @@ docs = [
     "sphinx-copybutton>=0.5.2",
 ]
 
+lint = [
+    "ruff"
+]
+
 build = [
     "pip-audit",
     "twine",
@@ -115,6 +119,9 @@ parallel = true
 # This configures the output test coverage report
 exclude_lines = ["pragma: no cover"]
 precision = 2
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
 
 
 # Use UV to create Hatch environments

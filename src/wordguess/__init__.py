@@ -22,7 +22,7 @@
 # SOFTWARE.
 
 """
-Wordguess is a project that contains essential functions 
+Wordguess is a project that contains essential functions
 for a word-guessing game, inspired by Wordle.
 """
 
