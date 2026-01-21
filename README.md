@@ -102,7 +102,7 @@ Large language models (LLMs) are involved in assisting test development, code re
 
 | Model | Usage | Last Accessed |
 | --- | --- | --- |
-| [Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5) | Corpus generation | January 2026 |
+| [Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5) | Corpus generation, script review and optimization | January 2026 |
 | [GitHub Copilot](https://github.com/features/copilot) | Pull request review, code fix, style consistency | January 2026 |
 | [GPT-5.2](https://openai.com/index/introducing-gpt-5-2/) | Test coverage review and improvement | January 2026 |
 
