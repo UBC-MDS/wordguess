@@ -15,7 +15,7 @@ def test_get_result_value_errors(mock_corpus):
 
     with pytest.raises(ValueError, match="not a valid word"):
         get_result("apple", "zzzzz", corpus=mock_corpus)
-    
+
     with pytest.raises(ValueError, match="not a valid word"):
         get_result("zzzzz", "apple", corpus=mock_corpus)
 
