@@ -120,6 +120,9 @@ parallel = true
 exclude_lines = ["pragma: no cover"]
 precision = 2
 
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
 
 # Use UV to create Hatch environments
 [tool.hatch.envs.default]
