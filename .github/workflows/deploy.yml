@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - otter
   workflow_dispatch: # Manual trigger
 
 jobs:
