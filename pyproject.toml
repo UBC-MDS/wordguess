@@ -65,7 +65,7 @@ docs = [
 ]
 
 lint = [
-    ruff
+    "ruff"
 ]
 
 build = [
