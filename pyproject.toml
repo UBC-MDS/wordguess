@@ -64,6 +64,10 @@ docs = [
     "sphinx-copybutton>=0.5.2",
 ]
 
+lint = [
+    ruff
+]
+
 build = [
     "pip-audit",
     "twine",
