@@ -8,22 +8,25 @@
 Wordguess is a project that contains essential functions for a word-guessing game, inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html).
 
 ## Summary
+
 The `wordguess` package is designed for developers to create guessing games. The package provides functionality for word validation, feedback generation, and corpus management. It can compare user guesses to the target word and provide feedback on the accuracy of the guesses in terms of correct letters and their positions, including numerical and human-readable expressions. Additionally, features for scoring and hinting are included to enhance development of word-guessing games. `wordguess` provides the back-end foundation needed to handle the underlying string comparisons and state tracking.
 
 `wordguess` fits perfectly into the Python ecosystem by offering a simple foundation for word-based projects. It uses standard Python practices, making it a great tool for learning to code or for developers who want to quickly add logic to their game ideas. Because the package emphasizes clean type-hinting and standardized docstrings, it serves as an excellent resource for developers learning about string manipulation, algorithmic logic, and package distribution. It bridges the gap between simple script-based games and production-ready modular code.
 
 ## Collaborators
+
 * Sarisha Das
 * Sarah Gauthier
 * Yuheng Ouyang
 * Harry Yau
 
 ## Get started
+
 You can install this package into your preferred Python environment using pip:
 
 ```bash
-pip install git+https://github.com/UBC-MDS/wordguess.git
-```
+pip install -i https://test.pypi.org/simple/ wordguess
+``````
 
 To use `wordguess` in your code:
 
@@ -41,7 +44,69 @@ To use `wordguess` in your code:
 >>>     wg.get_n_guesses(result_hist, n=10)
 ```
 
+## Development
+
+To contribute to this project, please refer to the [contribution guidelines](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md).
+
+### Setting up a development environment
+
+You can set up a development environment by cloning the repository and installing the dependencies (we recommend using `conda`):
+
+```bash
+conda env create -f environment.yml
+```
+
+Creating a conda environment includes installing the package in editable mode for development. If you are not using `conda`, you can install it manually:
+
+```bash
+pip install -e .[dev]  # not required if using the above conda setup
+```
+
+### Running tests
+
+To run the test suite, use:
+
+```bash
+pytest
+```
+
+### Building documentation
+
+Documentation needs to be update when changes are made. You can build the documentation locally using `quartodoc`:
+
+```bash
+quartodoc build
+```
+
+After reviewing and fixing the auto-generated `.qmd` files, you can preview the documentation to HTML:
+
+```bash
+quarto preview
+```
+
+### Code style
+
+We follow the [PEP 8](https://peps.python.org/pep-0008/) style guide for Python code. [Ruff](https://docs.astral.sh/ruff/linter/) is integrated in the development environment to help maintain code quality.
+
+### Repository structure
+
+The project repository contains three protected branches. All new features and bug fixes should be developed in independent development branches created from `otter`. Once changes are complete and tested, a pull request should be opened to merge the development branch back into `otter`. After review, changes from `otter` can be merged into `main` for release.
+
+* `main`: the production branch containing the latest stable release.
+ruff check . When merged from `otter`,
+  * code style is checked  (pass enforced);
+  * test suites are run (pass enforced);
+  * documentation is built and published;
+  * a new release is created; and
+  * the new release published to TestPyPI from the `main` branch.
+* `otter`: the staging branch where new features and bug fixes are integrated before release. When merged from a development branch,
+  * code style is checked (pass enforced); and
+  * test suites are run (pass enforced).
+* `gh-pages`: the branch containing the published documentation website. This should only be updated via automated workflows.
+
 ## Dataset & user functions
+
+Full API reference can be viewed at [https://ubc-mds.github.io/wordguess/reference/](https://ubc-mds.github.io/wordguess/reference/).
 
 * Dataset: `minidict` (*list*)
   * **Location:** `/src/wordguess/_internals.py`
@@ -98,7 +163,7 @@ To ensure consistency for **users** (developers) and **players** (end-users), th
 
 ## LLM usage disclosure
 
-Large language models (LLMs) are involved in assisting test development, code review, and corpus generation. 
+Large language models (LLMs) are involved in assisting test development, code review, and corpus generation.
 
 | Model | Usage | Last Accessed |
 | --- | --- | --- |
@@ -106,8 +171,7 @@ Large language models (LLMs) are involved in assisting test development, code re
 | [GitHub Copilot](https://github.com/features/copilot) | Pull request review, code fix, style consistency | January 2026 |
 | [GPT-5.2](https://openai.com/index/introducing-gpt-5-2/) | Test coverage review and improvement | January 2026 |
 
-
 ## Copyright
 
-- Copyright © 2026 Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau.
-- Free software distributed under the [MIT License](./LICENSE).
+* Copyright © 2026 Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau.
+* Free software distributed under the [MIT License](./LICENSE).
