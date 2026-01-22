@@ -1,6 +1,6 @@
 # Contributing
 
-Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau. 
+Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau.
 
 Contributions of all kinds are welcome here, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
@@ -9,15 +9,15 @@ Every little bit helps, and credit will always be given.
 
 You can contribute in many ways, for example:
 
-* [Report bugs](#report-bugs)
-* [Fix Bugs](#fix-bugs)
-* [Implement Features](#implement-features)
-* [Write Documentation](#write-documentation)
-* [Submit Feedback](#submit-feedback)
+- [Report bugs](#report-bugs)
+- [Fix Bugs](#fix-bugs)
+- [Implement Features](#implement-features)
+- [Write Documentation](#write-documentation)
+- [Submit Feedback](#submit-feedback)
 
 ### Report Bugs
 
-Report bugs at https://github.com/UBC-MDS/wordguess/issues.
+Report bugs at <https://github.com/UBC-MDS/wordguess/issues>.
 
 **If you are reporting a bug, please follow the template guidelines. The more
 detailed your report, the easier and thus faster we can help you.**
@@ -50,16 +50,16 @@ to let us know what you will be working on so that we can provide you with guida
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-https://github.com/UBC-MDS/wordguess/issues. If your feedback fits the format of one of
+<https://github.com/UBC-MDS/wordguess/issues>. If your feedback fits the format of one of
 the issue templates, please use that. Remember that this is a volunteer-driven
 project and everybody has limited time.
 
-## Get Started!
+## Get Started
 
 Ready to contribute? Here's how to set up wordguess for
 local development.
 
-1. Fork the https://github.com/UBC-MDS/wordguess
+1. Fork the <https://github.com/UBC-MDS/wordguess>
    repository on GitHub.
 2. Clone your fork locally (*if you want to work locally*)
 
@@ -108,7 +108,9 @@ Before you submit a pull request, check that it meets these guidelines:
    It needs to pass all of them before it can be considered for merging.
 
 ### Code Style
+
 Your suggested code should follow [PEP 8](https://pep8.org/) Python style guide. We recommend [black](https://black.readthedocs.io/) for automatic code formatting and [flake8](https://flake8.pycqa.org/) for linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using [NumPy style](https://peps.python.org/pep-0008/#documentation-strings).
 
 ## Code of Conduct
+
 Please not that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

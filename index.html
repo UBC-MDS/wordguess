@@ -77,9 +77,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36b218c2c0e4c3a6a60899293bad96a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-615adf85ae0d920ad91ed84c5a2ff008.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-36b218c2c0e4c3a6a60899293bad96a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-036329f4cfe10acdcd95f457f86a6dc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-6cc1a338d8c1e7ab9fce866626f20738.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-036329f4cfe10acdcd95f457f86a6dc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -281,8 +281,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">wordguess</span>
     </a>
@@ -330,10 +328,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -491,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="repository-structure" class="level3">
 <h3 class="anchored" data-anchor-id="repository-structure">Repository structure</h3>
-<p>The project repository contains two protected branches. All new features and bug fixes should be developed in independent development branches created from <code>otter</code>. Once changes are complete and tested, a pull request should be opened to merge the development branch back into <code>otter</code>. After review, changes from <code>otter</code> can be merged into <code>main</code> for release.</p>
+<p>The project repository contains three protected branches. All new features and bug fixes should be developed in independent development branches created from <code>otter</code>. Once changes are complete and tested, a pull request should be opened to merge the development branch back into <code>otter</code>. After review, changes from <code>otter</code> can be merged into <code>main</code> for release.</p>
 <ul>
 <li><code>main</code>: the production branch containing the latest stable release. ruff check . When merged from <code>otter</code>,
 <ul>
@@ -506,12 +500,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>code style is checked (pass enforced); and</li>
 <li>test suites are run (pass enforced).</li>
 </ul></li>
+<li><code>gh-pages</code>: the branch containing the published documentation website. This should only be updated via automated workflows.</li>
 </ul>
 </section>
 </section>
 <section id="dataset-user-functions" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-user-functions">Dataset &amp; user functions</h2>
-<p>Full API reference can be viewed at <a href="https://wordguess.readthedocs.io">https://wordguess.readthedocs.io</a>.</p>
+<p>Full API reference can be viewed at <a href="https://ubc-mds.github.io/wordguess/reference/">https://ubc-mds.github.io/wordguess/reference/</a>.</p>
 <ul>
 <li>Dataset: <code>minidict</code> (<em>list</em>)
 <ul>

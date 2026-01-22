@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/UBC-MDS/wordguess/reference/result_to_pattern.result_to_pattern.html</loc>
-    <lastmod>2026-01-22T08:02:09.440Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/reference/get_score.get_score.html</loc>
-    <lastmod>2026-01-22T08:02:09.438Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/reference/get_n_guesses.get_n_guesses.html</loc>
-    <lastmod>2026-01-22T08:02:09.436Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/DEVELOPMENT.html</loc>
-    <lastmod>2026-01-22T08:02:09.422Z</lastmod>
-  </url>
-  <url>
     <loc>https://github.com/UBC-MDS/wordguess/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2026-01-22T08:02:09.418Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/CHANGELOG.html</loc>
-    <lastmod>2026-01-22T08:02:09.415Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/CONTRIBUTING.html</loc>
-    <lastmod>2026-01-22T08:02:09.419Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/UBC-MDS/wordguess/index.html</loc>
-    <lastmod>2026-01-22T08:02:09.430Z</lastmod>
+    <lastmod>2026-01-22T08:24:27.334Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/UBC-MDS/wordguess/reference/get_result.get_result.html</loc>
-    <lastmod>2026-01-22T08:02:09.437Z</lastmod>
+    <lastmod>2026-01-22T08:24:47.554Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/UBC-MDS/wordguess/reference/index.html</loc>
-    <lastmod>2026-01-22T08:02:09.439Z</lastmod>
+    <lastmod>2026-01-22T08:24:47.512Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/index.html</loc>
+    <lastmod>2026-01-22T08:24:27.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/CHANGELOG.html</loc>
+    <lastmod>2026-01-22T08:24:27.334Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/CONTRIBUTING.html</loc>
+    <lastmod>2026-01-22T08:24:27.334Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/reference/result_to_pattern.result_to_pattern.html</loc>
+    <lastmod>2026-01-22T08:24:47.567Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/reference/get_score.get_score.html</loc>
+    <lastmod>2026-01-22T08:24:47.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/UBC-MDS/wordguess/reference/get_n_guesses.get_n_guesses.html</loc>
+    <lastmod>2026-01-22T08:24:47.547Z</lastmod>
   </url>
 </urlset>

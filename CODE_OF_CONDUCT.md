@@ -1,4 +1,5 @@
 # Contributor Covenant Code of Conduct
+
 _Sarisha Das, Sarah Gauthier, Yuheng Ouyang, Harry Yau_
 
 ## Our Pledge
@@ -112,24 +113,24 @@ individual, or aggression toward or disparagement of classes of individuals.
 **Consequence**: A permanent ban from any sort of public interaction within
 the community.
 
-## Contact Project Team:
+## Contact Project Team
 
-- Sarisha Das: rishadaz@student.ubc.ca
-- Sarah Gauthier: sgauth01@student.ubc.ca
-- Yuheng Ouyang: yuhengo@student.ubc.ca
-- Harry Yau: chungki@student.ubc.ca
+- Sarisha Das: <rishadaz@student.ubc.ca>
+- Sarah Gauthier: <sgauth01@student.ubc.ca>
+- Yuheng Ouyang: <yuhengo@student.ubc.ca>
+- Harry Yau: <chungki@student.ubc.ca>
 
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.0, available at
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+<https://www.contributor-covenant.org/version/2/0/code_of_conduct.html>.
 
 Community Impact Guidelines were inspired by [Mozilla's code of conduct
 enforcement ladder](https://github.com/mozilla/diversity).
 
 For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
-https://www.contributor-covenant.org/translations.
+<https://www.contributor-covenant.org/faq>. Translations are available at
+<https://www.contributor-covenant.org/translations>.
 
 [homepage]: https://www.contributor-covenant.org

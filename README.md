@@ -90,7 +90,7 @@ We follow the [PEP 8](https://peps.python.org/pep-0008/) style guide for Python 
 
 ### Repository structure
 
-The project repository contains two protected branches. All new features and bug fixes should be developed in independent development branches created from `otter`. Once changes are complete and tested, a pull request should be opened to merge the development branch back into `otter`. After review, changes from `otter` can be merged into `main` for release.
+The project repository contains three protected branches. All new features and bug fixes should be developed in independent development branches created from `otter`. Once changes are complete and tested, a pull request should be opened to merge the development branch back into `otter`. After review, changes from `otter` can be merged into `main` for release.
 
 * `main`: the production branch containing the latest stable release.
 ruff check . When merged from `otter`,
@@ -102,10 +102,11 @@ ruff check . When merged from `otter`,
 * `otter`: the staging branch where new features and bug fixes are integrated before release. When merged from a development branch,
   * code style is checked (pass enforced); and
   * test suites are run (pass enforced).
+* `gh-pages`: the branch containing the published documentation website. This should only be updated via automated workflows.
 
 ## Dataset & user functions
 
-Full API reference can be viewed at [https://wordguess.readthedocs.io](https://wordguess.readthedocs.io).
+Full API reference can be viewed at [https://ubc-mds.github.io/wordguess/reference/](https://ubc-mds.github.io/wordguess/reference/).
 
 * Dataset: `minidict` (*list*)
   * **Location:** `/src/wordguess/_internals.py`
