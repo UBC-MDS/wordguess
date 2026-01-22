@@ -90,7 +90,7 @@ We follow the [PEP 8](https://peps.python.org/pep-0008/) style guide for Python 
 
 ### Repository structure
 
-The project repository contains two protected branches. All new features and bug fixes should be developed in independent development branches created from `otter`. Once changes are complete and tested, a pull request should be opened to merge the development branch back into `otter`. After review, changes from `otter` can be merged into `main` for release.
+The project repository contains three protected branches. All new features and bug fixes should be developed in independent development branches created from `otter`. Once changes are complete and tested, a pull request should be opened to merge the development branch back into `otter`. After review, changes from `otter` can be merged into `main` for release.
 
 * `main`: the production branch containing the latest stable release.
 ruff check . When merged from `otter`,
