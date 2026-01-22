@@ -247,3 +247,4 @@ _version.py
 /.quarto/
 **/*.quarto_ipynb
 _site
+reference
