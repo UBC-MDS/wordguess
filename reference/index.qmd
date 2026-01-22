@@ -1,0 +1,10 @@
+# Function reference {.doc .doc-index}
+
+## Core functions
+
+| | |
+| --- | --- |
+| [get_n_guesses.get_n_guesses](get_n_guesses.get_n_guesses.qmd#wordguess.get_n_guesses.get_n_guesses) | Return all possible target words consistent with the result history. |
+| [get_result.get_result](get_result.get_result.qmd#wordguess.get_result.get_result) | Generate a guess feedback for a given guess against a target word. |
+| [get_score.get_score](get_score.get_score.qmd#wordguess.get_score.get_score) | Calculate the score of the guessing. |
+| [result_to_pattern.result_to_pattern](result_to_pattern.result_to_pattern.qmd#wordguess.result_to_pattern.result_to_pattern) | Convert a result string to a human-readable pattern of symbols. |

@@ -1,0 +1,43 @@
+# result_to_pattern.result_to_pattern { #wordguess.result_to_pattern.result_to_pattern }
+
+```python
+result_to_pattern.result_to_pattern(result)
+```
+
+Convert a result string to a human-readable pattern of symbols.
+
+This function maps each character in a result string to a corresponding colored square
+symbol.
+- The character '0' maps to a dark grey square symbol,
+- The character '1' maps to a yellow square symbol and,
+- The character '2' maps to a green square symbol.
+The output is a string composed of UTF-8 colored square symbols.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name   | Type   | Description                                                 | Default    |
+|--------|--------|-------------------------------------------------------------|------------|
+| result | str    | A string consisting only of the '0', '1' or '2' characters. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                                                                               | Description   |
+|--------|------------------------------------------------------------------------------------|---------------|
+| str    | The corresponding human-readable string pattern composed of UTF-8 colored symbols. |               |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                |
+|--------|------------|------------------------------------------------------------|
+|        | TypeError  | If result is not of type str.                              |
+|        | ValueError | If result contains characters other than '0', '1' and '2'. |
+
+## See Also {.doc-section .doc-section-see-also}
+
+get_result : A function that generate the result string for a given guess against a target word.
+
+Example:
+>>> result_to_pattern("01102")
+"⬛🟨🟨⬛🟩"
+>>> result_to_pattern("0001221")
+"⬛⬛⬛🟨🟩🟩🟨"
