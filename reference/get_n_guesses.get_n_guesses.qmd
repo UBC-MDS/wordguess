@@ -1,0 +1,57 @@
+# get_n_guesses.get_n_guesses { #wordguess.get_n_guesses.get_n_guesses }
+
+```python
+get_n_guesses.get_n_guesses(result_hist, n=None, corpus=minidict)
+```
+
+Return all possible target words consistent with the result history.
+
+This function filters the given corpus of allowed words using the information
+contained in a result history. Each entry in the result history consists of
+a guessed word and its corresponding result string, where:
+- '0' indicates the letter is not present in the target word,
+- '1' indicates the letter is present but in the wrong position, and
+- '2' indicates the letter is correct and in the correct position.
+
+Words in the corpus that violate any of the constraints implied by the result
+history are eliminated and the remaining words are considered to be possible
+valid guesses. If the parameter n is provided, n random words from the valid
+guesses are returned. If n is None, all valid guesses are returned.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name        | Type           | Description                                                                                                        | Default    |
+|-------------|----------------|--------------------------------------------------------------------------------------------------------------------|------------|
+| result_hist | dict           | A dictionary mapping previously guessed words to their corresponding result strings composed of '0', '1', and '2'. | _required_ |
+| n           | int(optional)  | The maximum number of valid guesses to return. If None, all valid guesses are returned.                            | `None`     |
+| corpus      | list(optional) | A list of all allowed words to consider as possible targets.                                                       | `minidict` |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type                                                                         | Description   |
+|--------|------------------------------------------------------------------------------|---------------|
+| list   | A list of words from the corpus that are consistent with the result history. |               |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                                                                     |
+|--------|------------|-----------------------------------------------------------------------------------------------------------------|
+|        | TypeError  | If result_hist is not a dictionary. If n is not a positive integer or None. If corpus is not a list of strings. |
+|        | ValueError | If result_hist is internally inconsistent.                                                                      |
+
+## See Also {.doc-section .doc-section-see-also}
+
+get_result : A function that generate the result string for a given guess against a target word.
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> result_hist = {"crane": "01200", "sloth": "10020"}
+>>> get_n_guesses(result_hist, corpus=corpus)
+['about', 'shout', 'mount']
+```
+
+```python
+>>> get_n_guesses(result_hist, n=2, corpus=corpus)
+['shout', 'mount']
+```

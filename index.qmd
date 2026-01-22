@@ -1,0 +1,5 @@
+---
+title: "wordguess"
+---
+
+{{< include README.md >}}

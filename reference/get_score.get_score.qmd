@@ -1,16 +1,4 @@
-# get_score { #wordguess.get_score }
-
-`get_score`
-
-
-
-## Functions
-
-| Name | Description |
-| --- | --- |
-| [get_score](#wordguess.get_score.get_score) | Calculate the score of the guessing. |
-
-### get_score { #wordguess.get_score.get_score }
+# get_score.get_score { #wordguess.get_score.get_score }
 
 ```python
 get_score.get_score(result, penalty=False, penalty_rate=0.0)
@@ -31,7 +19,7 @@ before the correct guess. The penalty is calculated as follows:
 For each guess before the correct guess, the score is reduced by the penalty rate of the total score.
 For example, if the correct guess is on the 3rd attempt and the penalty_rate is 0.1, the score will be reduced by 20%.
 
-#### Parameters {.doc-section .doc-section-parameters}
+## Parameters {.doc-section .doc-section-parameters}
 
 | Name         | Type        | Description                                                                                                                                                                    | Default    |
 |--------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
@@ -39,20 +27,20 @@ For example, if the correct guess is on the 3rd attempt and the penalty_rate is 
 | penalty      | bool        | A flag indicating whether to apply a penalty, by default False. penalty is applied for each guess before the correct guess.                                                    | `False`    |
 | penalty_rate | float       | The rate at which the penalty is applied for each incorrect guess, by default 0.0. For example, a penalty_rate of 0.1 means a 10% reduction in score for each incorrect guess. | `0.0`      |
 
-#### Returns {.doc-section .doc-section-returns}
+## Returns {.doc-section .doc-section-returns}
 
 | Name   | Type   | Description                                                |
 |--------|--------|------------------------------------------------------------|
 |        | float  | The calculated score based on the result and penalty flag. |
 
-#### Raises {.doc-section .doc-section-raises}
+## Raises {.doc-section .doc-section-raises}
 
 | Name   | Type       | Description                                                                                                                 |
 |--------|------------|-----------------------------------------------------------------------------------------------------------------------------|
 |        | TypeError  | If result is not a list of strings or penalty is not a boolean.                                                             |
 |        | ValueError | If result strings contain invalid characters. If result strings do not have the same length. If any result string is empty. |
 
-#### Examples {.doc-section .doc-section-examples}
+## Examples {.doc-section .doc-section-examples}
 
 ```python
 >>> get_score(["01122", "02222", "22222"])

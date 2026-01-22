@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - main
+      - otter  # TODO: Remove this branch after testing
   workflow_dispatch:
 
 jobs:

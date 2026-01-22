@@ -1,7 +1,18 @@
 project:
   type: website
+  output-dir: _site
+  resources:
+    - LICENSE
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - README.md
 
 website:
+  title: "wordguess"
+  site-url: https://github.com/UBC-MDS/wordguess
+  description: "A Python package with essential functions for a word-guessing game, inspired by Wordle."
+
+  # TOP BAR (Navbar)
   navbar:
     background: primary
     search: true
@@ -10,32 +21,52 @@ website:
         href: index.qmd
       - text: "Reference"
         href: reference/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/UBC-MDS/wordguess
+        aria-label: GitHub
 
-# tell quarto to read the generated sidebar
+  # SIDE BAR (Table of Contents & Navigation)
+  sidebar:
+    style: "floating"
+    collapse-level: 2
+    contents:
+      - text: "Overview"
+        href: index.qmd
+      - text: "API Reference"
+        href: reference/index.qmd
+      - text: "Contributing Guide"
+        href: CONTRIBUTING.md
+      - text: "Code of Conduct"
+        href: CODE_OF_CONDUCT.md
+      - text: "License"
+        href: LICENSE
+
+# Link the auto-generated styles and sidebar from quartodoc
 metadata-files:
   - reference/_sidebar.yml
 
-# tell quarto to read the generated styles
 format:
   html:
+    theme:
+      light: flatly
+      dark: darkly
     css:
       - reference/_styles-quartodoc.css
+    toc: true
+    code-copy: true
+    code-line-numbers: true
 
 quartodoc:
-  # the name used to import the package you want to create reference docs for
   package: wordguess
-
-  # write sidebar and style data
   sidebar: reference/_sidebar.yml
   css: reference/_styles-quartodoc.css
 
   sections:
-    - title: Some functions
-      desc: Functions to inspect docstrings.
+    - title: Core functions
       contents:
-        # the functions being documented in the package.
-        # you can refer to anything: class methods, modules, etc..
-        - get_n_guesses
-        - get_result
-        - get_score
-        - result_to_pattern
+        - get_n_guesses.get_n_guesses
+        - get_result.get_result
+        - get_score.get_score
+        - result_to_pattern.result_to_pattern
+        

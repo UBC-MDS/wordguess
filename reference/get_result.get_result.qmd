@@ -1,16 +1,4 @@
-# get_result { #wordguess.get_result }
-
-`get_result`
-
-
-
-## Functions
-
-| Name | Description |
-| --- | --- |
-| [get_result](#wordguess.get_result.get_result) | Generate a guess feedback for a given guess against a target word. |
-
-### get_result { #wordguess.get_result.get_result }
+# get_result.get_result { #wordguess.get_result.get_result }
 
 ```python
 get_result.get_result(target, guess, corpus=minidict)
@@ -18,7 +6,7 @@ get_result.get_result(target, guess, corpus=minidict)
 
 Generate a guess feedback for a given guess against a target word.
 
-#### Parameters {.doc-section .doc-section-parameters}
+## Parameters {.doc-section .doc-section-parameters}
 
 | Name   | Type           | Description                                                              | Default    |
 |--------|----------------|--------------------------------------------------------------------------|------------|
@@ -26,20 +14,20 @@ Generate a guess feedback for a given guess against a target word.
 | guess  | str            | The word provided by the player to be compared against the target.       | _required_ |
 | corpus | list(optional) | A collection of valid words used for validation. Defaults to `minidict`. | `minidict` |
 
-#### Returns {.doc-section .doc-section-returns}
+## Returns {.doc-section .doc-section-returns}
 
 | Name   | Type   | Description                                                                                                                                                                                                                      |
 |--------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        | str    | A string of digits representing the result for each letter: - '0' : The letter does not exist in the target. - '1' : The letter exists in the target but in a different position. - '2' : The letter is in the correct position. |
 
-#### Raises {.doc-section .doc-section-raises}
+## Raises {.doc-section .doc-section-raises}
 
 | Name   | Type       | Description                                                                                                                    |
 |--------|------------|--------------------------------------------------------------------------------------------------------------------------------|
 |        | TypeError  | If target or guess are not strings.                                                                                            |
 |        | ValueError | If target and guess have different lengths. If the target is not found in the corpus. If the guess is not found in the corpus. |
 
-#### Examples {.doc-section .doc-section-examples}
+## Examples {.doc-section .doc-section-examples}
 
 ```python
 >>> get_result("apple", "apply")
