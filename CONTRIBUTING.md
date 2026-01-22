@@ -9,17 +9,11 @@ Every little bit helps, and credit will always be given.
 
 You can contribute in many ways, for example:
 
-- [Contributing](#contributing)
-  - [Example Contributions](#example-contributions)
-    - [Report Bugs](#report-bugs)
-    - [Fix Bugs](#fix-bugs)
-    - [Implement Features](#implement-features)
-    - [Write Documentation](#write-documentation)
-    - [Submit Feedback](#submit-feedback)
-  - [Get Started](#get-started)
-    - [Pull Request Guidelines](#pull-request-guidelines)
-    - [Code Style](#code-style)
-  - [Code of Conduct](#code-of-conduct)
+- [Report bugs](#report-bugs)
+- [Fix Bugs](#fix-bugs)
+- [Implement Features](#implement-features)
+- [Write Documentation](#write-documentation)
+- [Submit Feedback](#submit-feedback)
 
 ### Report Bugs
 
