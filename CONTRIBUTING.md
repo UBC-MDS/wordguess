@@ -5,12 +5,7 @@ Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau.
 Contributions of all kinds are welcome here, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
-## Example Contributions
-
-You can contribute in many ways, for example:
-
 - [Contributing](#contributing)
-  - [Example Contributions](#example-contributions)
     - [Report Bugs](#report-bugs)
     - [Fix Bugs](#fix-bugs)
     - [Implement Features](#implement-features)
@@ -115,7 +110,7 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ### Code Style
 
-Your suggested code should follow [PEP 8](https://pep8.org/) Python style guide. We recommend [black](https://black.readthedocs.io/) for automatic code formatting and [flake8](https://flake8.pycqa.org/) for linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using [NumPy style](https://peps.python.org/pep-0008/#documentation-strings).
+Your suggested code should follow [PEP 8](https://pep8.org/) Python style guide. We recommend [Ruff](https://docs.astral.sh/ruff/) for automatic code formatting and linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using [NumPy style](https://peps.python.org/pep-0008/#documentation-strings).
 
 ## Code of Conduct
 
