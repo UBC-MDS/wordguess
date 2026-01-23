@@ -59,6 +59,8 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     90.0
 
     """
+    if result == []:
+        raise ValueError("Result list must not be empty.")
     if not isinstance(result, list):
         raise TypeError("Result must be a list of strings.")
     if not all(isinstance(r, str) for r in result):
@@ -71,6 +73,9 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
         raise ValueError("Result strings must only contain characters '0', '1', and '2'.")
     if len(set(len(r) for r in result)) > 1:
         raise ValueError("All result strings must have the same length.")  
+    if penalty_rate < 0 or penalty_rate > 1:
+        raise ValueError("Penalty rate must be between 0 and 1.")
+    
 
     total_score = len(result[0]) * 2 
     highest_score = 0
