@@ -41,3 +41,8 @@ def test_get_result(mock_corpus):
 
     # Test with repeated letters
     assert get_result("abort", "alarm", corpus=mock_corpus) == "20020"
+
+    # Test with all correct
+    assert get_result("apple", "apple", corpus=mock_corpus) == "22222"
+
+    

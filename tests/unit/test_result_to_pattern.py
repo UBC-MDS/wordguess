@@ -56,3 +56,12 @@ def test_result_to_pattern_chars():
     result_3 = "wordle"
     with pytest.raises(ValueError):
         result_to_pattern(result_3)
+
+def test_result_to_pattern_edge_cases():
+    """
+    Test edge cases for result_to_pattern function.
+    """
+    result_1 = "0" * 1000 + "1" * 1000 + "2" * 1000
+    expected_1 = "⬛" * 1000 + "🟨" * 1000 + "🟩" * 1000
+    actual_1 = result_to_pattern(result_1)
+    assert actual_1 == expected_1, "Failed on very long string input."

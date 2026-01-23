@@ -80,6 +80,19 @@ def test_get_score_value_error():
 
 def test_get_score_empty_result():
     """Testing when result list is empty"""
-    with pytest.raises(ValueError, match="result list must not be empty"):
-        get_score([])
+    result = []
+    with pytest.raises(ValueError, match="Result list must not be empty"):
+        get_score(result)
 
+def test_get_score_penalty_rate_value_error():
+    """Testing when penalty rate is out of bounds"""
+    with pytest.raises(ValueError, match="must be between 0 and 1"):
+        get_score(["012", "122"], penalty=True, penalty_rate=1.5)
+
+def test_get_score_rounding():
+    """Testing that score is correctly rounded to one decimal place"""
+    result = ["111", "122"]
+    penalty = True
+    penalty_rate = 0.333
+    expected_score = 55.58
+    assert get_score(result=result, penalty=penalty, penalty_rate=penalty_rate) == expected_score
