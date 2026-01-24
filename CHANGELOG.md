@@ -32,3 +32,28 @@ All notable changes to this project will be documented in this file.
 - Added tests for `get_score`
 - Added tests for `result_to_pattern`
 - Added package-level imports in `__init__.py`
+
+## [2.0.0] - 2026-01-24
+
+- Fixed typos and format issues
+- Fixed code linting errors
+- Updated `README.md` with installation and development guides
+- Updated `CONTRIBUTING.md` with code formatter and linter change
+- Updated `CONTRIBUTING.md` with hyperlinks
+- Updated `CODE_OF_CONDUCT.md` with enforcement guidelines and contact info
+- Added documentation site
+- Added Quarto configuration for documentation site
+- Added Quarto-related dependencies
+- Added `environment.yml` for development environment setup
+- Added `index.qmd` as documentation homepage
+- Added GitHub Actions workflow for package building and testing
+- Added GitHub Actions workflow for code quality checks
+- Added GitHub Actions workflow for publishing package to TestPyPI
+- Added GitHub Actions workflow for documentation rendering and publishing
+- Added one more test case in `tests/unit/test_result_to_pattern.py`
+- Added three test cases in `tests/unit/test_get_score.py`
+- Added one more test case in `tests/unit/test_get_result.py`
+- Added validation for empty result lists in `src/wordguess/get_score.py`
+- Removed unused `docs` directory and Sphinx configuration
+- Removed unused GitHub Actions workflows
+- Removed Sphinx-related dependencies from `pyproject.toml`

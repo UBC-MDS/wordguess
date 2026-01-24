@@ -248,3 +248,4 @@ _version.py
 **/*.quarto_ipynb
 _site
 reference
+objects.json
