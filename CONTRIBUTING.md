@@ -5,16 +5,15 @@ Agreed upon by Sarisha Das, Sarah Gauthier, Yuheng Ouyang and Harry Yau.
 Contributions of all kinds are welcome here, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
 
-- [Contributing](#contributing)
-    - [Report Bugs](#report-bugs)
-    - [Fix Bugs](#fix-bugs)
-    - [Implement Features](#implement-features)
-    - [Write Documentation](#write-documentation)
-    - [Submit Feedback](#submit-feedback)
-  - [Get Started](#get-started)
-    - [Pull Request Guidelines](#pull-request-guidelines)
-    - [Code Style](#code-style)
-  - [Code of Conduct](#code-of-conduct)
+## Example Contributions
+
+You can contribute in many ways, for example:
+
+- [Report bugs](#report-bugs)
+- [Fix Bugs](#fix-bugs)
+- [Implement Features](#implement-features)
+- [Write Documentation](#write-documentation)
+- [Submit Feedback](#submit-feedback)
 
 ### Report Bugs
 
