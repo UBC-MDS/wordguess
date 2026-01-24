@@ -90,7 +90,7 @@ def test_get_score_penalty_rate_value_error():
         get_score(["012", "122"], penalty=True, penalty_rate=1.5)
 
 def test_get_score_rounding():
-    """Testing that score is correctly rounded to one decimal place"""
+    """Testing that score is correctly rounded to two decimal places"""
     result = ["111", "122"]
     penalty = True
     penalty_rate = 0.333
