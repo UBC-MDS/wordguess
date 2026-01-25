@@ -53,6 +53,7 @@ All notable changes to this project will be documented in this file.
 - Added one more test case in `tests/unit/test_result_to_pattern.py`
 - Added three test cases in `tests/unit/test_get_score.py`
 - Added one more test case in `tests/unit/test_get_result.py`
+- Added validation for penalty rate in `src/wordguess/get_score.py`
 - Added validation for empty result lists in `src/wordguess/get_score.py`
 - Removed unused `docs` directory and Sphinx configuration
 - Removed unused GitHub Actions workflows
