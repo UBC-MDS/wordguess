@@ -25,8 +25,13 @@ def test_result_to_pattern():
     actual_3 = result_to_pattern(result_3)
     assert actual_3 == expected_3, f"Expected {expected_3} but got {actual_3}"
 
+    result_4 = "0" * 1000 + "1" * 1000 + "2" * 1000
+    expected_4 = "⬛" * 1000 + "🟨" * 1000 + "🟩" * 1000
+    actual_4 = result_to_pattern(result_4)
+    assert actual_4 == expected_4, "Failed on very long string input."
 
-def test_result_to_pattern_input_type():
+
+def test_result_to_pattern_type_error():
     """
     Test that result_to_pattern throws an error when the
     input is the incorrect type (i.e., not a string).
@@ -44,7 +49,7 @@ def test_result_to_pattern_input_type():
         result_to_pattern(result_3)
 
 
-def test_result_to_pattern_chars():
+def test_result_to_pattern_value_error():
     """
     Test that result_to_pattern throws an error when the
     input contains characters other than '0', '1' or '2'.

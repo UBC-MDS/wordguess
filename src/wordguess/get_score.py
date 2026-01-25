@@ -68,6 +68,10 @@ def get_score(
         raise TypeError("All elements in result must be strings.")
     if not isinstance(penalty, bool):
         raise TypeError("Penalty must be a boolean value.")
+    if result == []:
+        raise ValueError("Result list must not be empty.")
+    if penalty_rate < 0 or penalty_rate > 1:
+        raise ValueError("Penalty rate must be between 0 and 1.")
     if any(r == "" for r in result):
         raise ValueError("All result strings must not be empty.")
     if not all(all(c in "012" for c in r) for r in result):

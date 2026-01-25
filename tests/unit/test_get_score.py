@@ -70,6 +70,15 @@ def test_get_score_no_penalty():
         == expected_score
     )
 
+    result = ["111", "122"]
+    penalty = True
+    penalty_rate = 0.333
+    expected_score = 55.58
+    assert (
+        get_score(result=result, penalty=penalty, penalty_rate=penalty_rate)
+        == expected_score
+    )
+
 
 def test_get_score_type_error():
     """
@@ -102,3 +111,9 @@ def test_get_score_value_error():
 
     with pytest.raises(ValueError, match="must not be empty"):
         get_score(["012", ""])
+
+    with pytest.raises(ValueError, match="must not be empty"):
+        get_score([])
+
+    with pytest.raises(ValueError, match="must be between 0 and 1"):
+        get_score(["012", "122"], penalty=True, penalty_rate=1.5)
