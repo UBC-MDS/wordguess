@@ -2,14 +2,17 @@
 # Author: Harry Yau
 # Date: 2026-01-09
 
-def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.0) -> float:
+
+def get_score(
+    result: list[str], penalty: bool = False, penalty_rate: float = 0.0
+) -> float:
     """
     Calculate the score of the guessing.
 
     This function computes the score based on the provided guess result.
     The calculation will be the highest score from the result list.
     each guess will contain characters '0', '1', and '2' representing different guess outcomes.
-    
+
     Calculation will be sum of of the highest guess score diveded by the total score of the words.
     for example, if the highest guess score is "12222"
     the returning score will be (1+2+2+2+2)/10 * 100 = 90.0
@@ -37,11 +40,11 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
     -------
     float
         The calculated score based on the result and penalty flag.
-        
+
     Raises
     ------
     TypeError
-        If result is not a list of strings or penalty is not a boolean. 
+        If result is not a list of strings or penalty is not a boolean.
     ValueError
         If result strings contain invalid characters.
         If result strings do not have the same length.
@@ -65,14 +68,20 @@ def get_score(result: list[str], penalty: bool = False, penalty_rate: float = 0.
         raise TypeError("All elements in result must be strings.")
     if not isinstance(penalty, bool):
         raise TypeError("Penalty must be a boolean value.")
-    if any(r == '' for r in result):
+    if result == []:
+        raise ValueError("Result list must not be empty.")
+    if penalty_rate < 0 or penalty_rate > 1:
+        raise ValueError("Penalty rate must be between 0 and 1.")
+    if any(r == "" for r in result):
         raise ValueError("All result strings must not be empty.")
-    if not all(all(c in '012' for c in r) for r in result):
-        raise ValueError("Result strings must only contain characters '0', '1', and '2'.")
+    if not all(all(c in "012" for c in r) for r in result):
+        raise ValueError(
+            "Result strings must only contain characters '0', '1', and '2'."
+        )
     if len(set(len(r) for r in result)) > 1:
-        raise ValueError("All result strings must have the same length.")  
+        raise ValueError("All result strings must have the same length.")
 
-    total_score = len(result[0]) * 2 
+    total_score = len(result[0]) * 2
     highest_score = 0
 
     for res in result:

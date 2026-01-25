@@ -40,7 +40,7 @@ def get_result(target: str, guess: str, corpus: list = minidict) -> str:
     >>> get_result("books", "slope")
     '00201'
     """
-    
+
     ## Invalid input checks
     if not isinstance(target, str) or not isinstance(guess, str):
         # either target or guess is not a string

@@ -1,0 +1,14 @@
+name: wordguess
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytest=9.0.2
+  - copier=9.11.0
+  - hatch=1.16.2
+  - quarto=1.8.27
+  - quartodoc=0.11.1
+  - pip=25.3
+  - pip:
+    - -e .[dev]

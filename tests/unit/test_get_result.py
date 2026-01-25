@@ -8,19 +8,19 @@ def mock_corpus():
     return ["apple", "apply", "stare", "tears", "abort", "alarm", "books", "slope"]
 
 
-def test_get_result_value_errors(mock_corpus):
+def test_get_result_value_error(mock_corpus):
     """Test that ValueErrors are raised for length mismatch or invalid words."""
     with pytest.raises(ValueError, match="same length"):
         get_result("apple", "longword", corpus=mock_corpus)
 
     with pytest.raises(ValueError, match="not a valid word"):
         get_result("apple", "zzzzz", corpus=mock_corpus)
-    
+
     with pytest.raises(ValueError, match="not a valid word"):
         get_result("zzzzz", "apple", corpus=mock_corpus)
 
 
-def test_get_result_type_errors():
+def test_get_result_type_error():
     """Test that TypeError is raised for non-string inputs."""
     with pytest.raises(TypeError, match="must be strings"):
         get_result("apple", 12345)
@@ -41,3 +41,6 @@ def test_get_result(mock_corpus):
 
     # Test with repeated letters
     assert get_result("abort", "alarm", corpus=mock_corpus) == "20020"
+
+    # Test with all correct
+    assert get_result("apple", "apple", corpus=mock_corpus) == "22222"
