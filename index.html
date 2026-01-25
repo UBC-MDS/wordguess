@@ -474,7 +474,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="building-documentation" class="level3">
 <h3 class="anchored" data-anchor-id="building-documentation">Building documentation</h3>
-<p>Documentation needs to be update when changes are made. You can build the documentation locally using <code>quartodoc</code>:</p>
+<p>Documentation needs to be updated when changes are made. You can build the documentation locally using <code>quartodoc</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">quartodoc</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After reviewing and fixing the auto-generated <code>.qmd</code> files, you can preview the documentation to HTML:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="repository-structure">Repository structure</h3>
 <p>The project repository contains three protected branches. All new features and bug fixes should be developed in independent development branches created from <code>otter</code>. Once changes are complete and tested, a pull request should be opened to merge the development branch back into <code>otter</code>. After review, changes from <code>otter</code> can be merged into <code>main</code> for release.</p>
 <ul>
-<li><code>main</code>: the production branch containing the latest stable release. ruff check . When merged from <code>otter</code>,
+<li><code>main</code>: the production branch containing the latest stable release. When merged from <code>otter</code>,
 <ul>
 <li>code style is checked (pass enforced);</li>
 <li>test suites are run (pass enforced);</li>
