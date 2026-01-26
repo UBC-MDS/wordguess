@@ -2,8 +2,9 @@
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/wordguess.svg)](https://pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://pypi.org/project/wordguess/)  |
+| Package | [![Latest Test PyPI Version](https://img.shields.io/pypi/v/wordguess?label=TestPyPI&color=blue)](https://test.pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://test.pypi.org/project/wordguess/)  |
 | Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+|Testing |[![codecov](https://codecov.io/github/UBC-MDS/wordguess/graph/badge.svg?token=wxpY8GJ0LI)](https://codecov.io/github/UBC-MDS/wordguess) |
 
 Wordguess is a project that contains essential functions for a word-guessing game, inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html).
 
