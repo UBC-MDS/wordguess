@@ -36,31 +36,21 @@ jobs:
         run: |
           quartodoc build
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+
       # =====================================================
       # Deploy to Netlify
       # =====================================================
 
-      - name: Configure pull release name
-        if: ${{github.event_name == 'pull_request'}}
-        env:
-          PR_NUMBER: ${{ github.event.number }}
-        run: |
-          echo "RELEASE_NAME=pr-${PR_NUMBER}" >> $GITHUB_ENV
+      # Create a unique name for this deployment using the PR number
+      # This helps track which PR preview is which
+      - name: Configure release name
+        run: echo "RELEASE_NAME=pr-${{ github.event.number }}" >> $GITHUB_ENV
 
-      - name: Configure branch release name
-        if: ${{github.event_name != 'pull_request'}}
-        run: |
-          # use branch name, but replace slashes. E.g. feat/a -> feat-a
-          echo "RELEASE_NAME=${GITHUB_REF_NAME/\//-}" >> $GITHUB_ENV
-
-      - name: Create Github "view deployment" button in PR
-        if: ${{github.event_name == 'pull_request'}}
+      # Create a deployment status on GitHub to track the deployment progress
+      # This shows up in the PR's "Deployments" section
+      - name: Create deployment status
         uses: bobheadxi/deployments@v1
         id: deployment
         with:
@@ -70,27 +60,24 @@ jobs:
           ref: ${{ github.head_ref }}
           logs: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
 
+      # Deploy the rendered site to Netlify with a PR-specific preview URL
+      # The alias ensures each PR gets its own stable URL during review
       - name: Deploy to Netlify
         id: netlify
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          REF_NAME: ${{ github.ref_name }}
-          ALIAS: ${{ steps.deployment.outputs.env }}
         run: |
           npm install -g netlify-cli
-          if [ "${REF_NAME}" = "master" ] || [ "${REF_NAME}" = "main" ]; then
-            netlify deploy --dir=_site/ --prod 2>&1 | tee deploy.log
-          else
-            netlify deploy --dir=_site/ --alias="${ALIAS}" 2>&1 | tee deploy.log
-          fi
+          netlify deploy --dir=_site/ --alias="pr-${{ github.event.number }}" 2>&1 | tee deploy.log
           DEPLOY_URL=$(grep -oP 'https://[^\s]+' deploy.log | grep -E '(netlify\.app|--.*\.netlify\.app)' | head -n 1)
           echo "url=${DEPLOY_URL}" >> $GITHUB_OUTPUT
-          cat deploy.log
           
-      - name: Update Github "view deployment" button in PR
+      # Update the GitHub deployment status with success/failure and the preview URL
+      # This creates a clickable link in the PR to view the deployed preview
+      - name: Update deployment status
         uses: bobheadxi/deployments@v1
-        if: ${{ always() && github.event_name == 'pull_request'}}
+        if: always()
         with:
           step: finish
           token: ${{ secrets.GITHUB_TOKEN }}
