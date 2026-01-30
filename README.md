@@ -2,8 +2,10 @@
 
 |        |        |
 |--------|--------|
-| Package | [![Latest PyPI Version](https://img.shields.io/pypi/v/wordguess.svg)](https://pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/pypi/pyversions/wordguess.svg)](https://pypi.org/project/wordguess/)  |
-| Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) |
+| Package | [![Latest Test PyPI Version](https://img.shields.io/pypi/v/wordguess?label=TestPyPI&logo=python&color=blue&pypiBaseUrl=https%3A%2F%2Ftest.pypi.org)](https://test.pypi.org/project/wordguess/) [![Supported Python Versions](https://img.shields.io/badge/python->=3.10-blue?logo=python)](https://test.pypi.org/project/wordguess/)  |
+| Meta   | [![Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+|Testing |[![Unit Tests](https://github.com/UBC-MDS/wordguess/actions/workflows/build.yml/badge.svg)](https://github.com/UBC-MDS/wordguess/actions/workflows/build.yml) [![codecov](https://codecov.io/github/UBC-MDS/wordguess/graph/badge.svg?token=wxpY8GJ0LI)](https://codecov.io/github/UBC-MDS/wordguess) |
+| Documentation|[![Docs Build](https://github.com/UBC-MDS/wordguess/actions/workflows/docs.yml/badge.svg)](https://github.com/UBC-MDS/wordguess/actions/workflows/docs.yml) |
 
 Wordguess is a project that contains essential functions for a word-guessing game, inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html).
 
