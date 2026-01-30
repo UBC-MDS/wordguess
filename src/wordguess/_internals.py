@@ -635,4 +635,5 @@ minidict = [
     "exult",
     "candy",
     "might",
+    "spark"
 ]
