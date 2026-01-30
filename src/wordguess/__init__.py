@@ -30,3 +30,4 @@ from wordguess.get_n_guesses import get_n_guesses
 from wordguess.get_result import get_result
 from wordguess.get_score import get_score
 from wordguess.result_to_pattern import result_to_pattern
+from .__version__ import __version__
