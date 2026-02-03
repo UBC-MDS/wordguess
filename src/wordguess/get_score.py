@@ -24,7 +24,7 @@ def get_score(
 
     Parameters
     ----------
-    result : list of str
+    result : list
         A list containing the list of result. The result is a string
         with characters '0', '1', and '2' representing different guess outcomes.
 
@@ -46,9 +46,9 @@ def get_score(
     TypeError
         If result is not a list of strings or penalty is not a boolean.
     ValueError
-        If result strings contain invalid characters.
-        If result strings do not have the same length.
-        If any result string is empty.
+        If result strings contain invalid characters;
+        if result strings do not have the same length; or 
+        if any result string is empty.
 
     Examples
     --------
@@ -62,6 +62,7 @@ def get_score(
     90.0
 
     """
+    # Input validation
     if not isinstance(result, list):
         raise TypeError("Result must be a list of strings.")
     if not all(isinstance(r, str) for r in result):
@@ -81,6 +82,7 @@ def get_score(
     if len(set(len(r) for r in result)) > 1:
         raise ValueError("All result strings must have the same length.")
 
+    # Score calculation
     total_score = len(result[0]) * 2
     highest_score = 0
 
@@ -92,8 +94,10 @@ def get_score(
         if current_score > highest_score:
             highest_score = current_score
 
+    # Final score computation
     score_percentage = (highest_score / total_score) * 100
 
+    # Apply penalty if applicable
     if penalty:
         penalty_multiplier = (1 - penalty_rate) ** (len(result) - 1)
         score_percentage *= penalty_multiplier
