@@ -33,17 +33,17 @@ pip install -i https://test.pypi.org/simple/ wordguess
 To use `wordguess` in your code:
 
 ```python
->>> from wordguess.get_result import get_result
->>> get_result("spark", "spoon")
+from wordguess.get_result import get_result
+get_result("spark", "spoon")
 ```
 
 ```python
->>> import wordguess as wg
->>> 
->>> result_hist = {}
->>> for word in ['whelp','might','madam']:
->>>     result_hist[word] = wg.get_result('major', word)
->>>     wg.get_n_guesses(result_hist, n=10)
+import wordguess as wg
+
+result_hist = {}
+for word in ['whelp','might','madam']:
+    result_hist[word] = wg.get_result('major', word)
+    wg.get_n_guesses(result_hist, n=10)
 ```
 
 ## Development
