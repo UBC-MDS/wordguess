@@ -62,6 +62,7 @@ def get_score(
     90.0
 
     """
+    # Input validation checks
     if not isinstance(result, list):
         raise TypeError("Result must be a list of strings.")
     if not all(isinstance(r, str) for r in result):
@@ -81,21 +82,31 @@ def get_score(
     if len(set(len(r) for r in result)) > 1:
         raise ValueError("All result strings must have the same length.")
 
+    # Calculate the maximum possible score (word length * 2, where 2 is the max per character)
     total_score = len(result[0]) * 2
     highest_score = 0
 
+    # Iterate through all guesses to find the best score
     for res in result:
+        # Sum the numeric values of each character ('0'=0, '1'=1, '2'=2)
         current_score = sum(int(c) for c in res)
+        # If a perfect match is found (all characters are '2'), use it and stop searching
         if current_score == total_score:
             highest_score = current_score
             break
+        # Track the highest score found so far
         if current_score > highest_score:
             highest_score = current_score
 
+    # Convert the highest score to a percentage (0-100)
     score_percentage = (highest_score / total_score) * 100
 
+    # Apply penalty for multiple guesses if penalty flag is True
     if penalty:
+        # Penalty multiplier decreases exponentially based on number of guesses
+        # (1 - penalty_rate) is raised to the power of (number of guesses - 1)
         penalty_multiplier = (1 - penalty_rate) ** (len(result) - 1)
+        # Reduce the score by the penalty multiplier
         score_percentage *= penalty_multiplier
 
     return round(score_percentage, 2)
