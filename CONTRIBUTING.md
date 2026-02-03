@@ -111,6 +111,158 @@ Before you submit a pull request, check that it meets these guidelines:
 
 Your suggested code should follow [PEP 8](https://pep8.org/) Python style guide. We recommend [Ruff](https://docs.astral.sh/ruff/) for automatic code formatting and linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using [NumPy style](https://peps.python.org/pep-0008/#documentation-strings).
 
+## Development Tools and Infrastructure
+
+This section documents the development tools, GitHub infrastructure, and organizational practices applied in this project, as well as considerations for scaling up similar projects.
+
+### Tools Used in This Project
+
+#### Package Management and Build Tools
+
+- **Hatch**: Modern Python project manager for building, versioning, and environment management
+  - Simplifies dependency management and virtual environment creation
+  - Provides consistent build and test workflows on deploying package
+- **Conda**: Cross-platform package and environment manager
+  - Manages project dependencies and isolated environments
+  - Facilitates reproducible development setups
+
+#### Code Quality and Testing
+
+- **pytest**: Testing framework for writing and running unit tests
+  - Comprehensive test coverage in `tests/` directory
+  - Enables test-driven development practices
+- **Codecov**: Code coverage reporting tool
+  - Tracks test coverage percentage
+  - Identifies untested code paths
+- **Ruff**: Python linter and code formatter
+  - Enforces code style and quality standards
+  - Automatically formats code to adhere to PEP 8 guidelines
+
+#### Documentation
+
+- **Quarto**: Scientific and technical publishing system
+  - Generates project documentation from markdown and code
+  - Integrates narrative text with executable code examples
+- **quartodoc**: Quarto extension for documentation sites
+  - Provides templates and tools for building documentation websites
+- **NumPy-style docstrings**: Standard documentation format
+  - Provides clear, structured documentation for all functions
+  - Enables automatic documentation generation
+
+#### Version Control
+
+- **Git**: Distributed version control system
+- **GitHub**: Cloud-based repository hosting and collaboration platform
+
+### GitHub Infrastructure
+
+Our project leverages several GitHub features for collaboration and automation:
+
+#### Repository Organization
+
+- **Branching Strategy**: Feature branch workflow
+  - `main` branch for stable code
+  - `otter` branch as our dev branch to integrate features, bug fixes, and changes before they are ready for production
+  - `gh-pages`: Branch for hosting documentation site
+  - Pull requests for merging changes into `main` or `otter`
+
+#### Issue Tracking
+
+- **GitHub Projects**: Kanban boards for task tracking
+  - Backlog management and roadmap visualization
+  - Allow tracking issues, pull requests, and ideas across customizable columns
+- **Issue Templates**: Standardized formats for bug reports and feature requests
+  - Ensures comprehensive information collection
+  - Streamlines triage and prioritization
+
+#### Pull Request Workflow
+
+- **Pull Request Templates**: Guide contributors through necessary information
+- **Code Review**: Copilot and peer review process before merging
+- **Automated Checks**: CI/CD integration validates code quality
+
+#### Project Documentation
+
+- **README.md**: Project overview, installation, and usage instructions
+- **CONTRIBUTING.md**: Contribution guidelines and development setup
+- **CODE_OF_CONDUCT.md**: Community standards and expectations
+- **CHANGELOG.md**: Record of changes and version history
+- **LICENSE**: MIT License for open-source distribution
+
+### Organizational Practices
+
+#### Development Workflow
+
+- **Issue-Driven Development**: All changes start with an issue
+- **Test-Driven Development**: Write tests before implementing features
+- **Code Review**: All changes reviewed by at least one team member
+
+#### Team Collaboration
+
+- **Clear Ownership**: Issues assigned to specific team members
+- **Communication**: GitHub issues and pull requests for async collaboration
+- **Documentation**: Comprehensive inline comments and docstrings
+- **Consistency**: Shared code style and formatting standards
+
+#### Quality Assurance
+
+- **Type Hints**: Python type annotations throughout codebase
+- **Unit Tests**: Comprehensive test coverage in `tests/unit/`
+- **Manual Testing**: Verification of functionality before merging
+
+### Scaling Up: Tools and Practices for Larger Projects
+
+If scaling this or similar projects, we would implement the following additional tools and practices:
+
+#### Continuous Integration/Continuous Deployment (CI/CD)
+
+- **GitHub Actions**: Automate testing, building, and deployment
+  - Run test suite on every push and pull request
+  - Automatic package building and publishing to PyPI
+  - Documentation deployment to GitHub Pages or Read the Docs
+- **Pre-commit Hooks**: Enforce code quality locally before commits
+  - Check for large files, merge conflicts, and trailing whitespace
+
+#### Enhanced Testing
+
+- **Performance Tests**: Ensure functions maintain acceptable performance
+- **Integration Tests**: Test component interactions
+- **End-to-End Tests**: Validate complete workflows
+
+#### Dependency Management
+
+- **Dependabot**: Automated dependency updates
+  - Security vulnerability notifications
+  - Automatic pull requests for updates
+- **Safety/Bandit**: Security scanning for vulnerabilities
+- **Lock Files**: Pin exact dependency versions for reproducibility
+
+#### Code Quality Tools
+
+- **MyPy**: Static type checking
+  - Catch type errors before runtime
+  - Improve code reliability
+- **Coverage Requirements**: Enforce minimum coverage thresholds
+- **SonarQube/CodeClimate**: Advanced code quality metrics
+  - Code complexity analysis
+  - Maintainability scoring
+  - Security hotspot detection
+
+#### Project Management
+
+- **Issue Automation**: Automated labeling and triage
+- **Release Management**: Semantic versioning with automated releases
+
+#### Monitoring and Analytics
+
+- **PyPI Statistics**: Track package downloads and usage
+- **Error Tracking**: Sentry or similar for runtime error monitoring
+- **User Feedback**: Issue templates for user-reported bugs and features
+
+### Conclusion
+
+The tools and practices applied in this project establish a solid foundation for collaborative open-source development. For larger-scale projects, the additional infrastructure focuses on automation, quality assurance, and enabling distributed teams to work effectively. The key principle is to automate routine tasks, enforce quality standards early in the development process, and maintain clear documentation and communication channels.
+
 ## Code of Conduct
 
 Please not that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

@@ -566,6 +566,7 @@ minidict = [
     "harry",
     "sweep",
     "manor",
+    "slope",
     "guild",
     "foray",
     "altar",
@@ -635,4 +636,7 @@ minidict = [
     "exult",
     "candy",
     "might",
+    "spark",
+    "apply",
+    "stare"
 ]

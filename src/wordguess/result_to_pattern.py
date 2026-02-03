@@ -2,11 +2,12 @@ def result_to_pattern(result: str) -> str:
     """
     Convert a result string to a human-readable pattern of symbols.
 
-    This function maps each character in a result string to a corresponding colored square
-    symbol.
+    This function maps each character in a result string to a corresponding colored square symbol.
+
     - The character '0' maps to a dark grey square symbol,
     - The character '1' maps to a yellow square symbol and,
     - The character '2' maps to a green square symbol.
+
     The output is a string composed of UTF-8 colored square symbols.
 
     Parameters
@@ -16,7 +17,8 @@ def result_to_pattern(result: str) -> str:
 
     Returns
     -------
-    str: The corresponding human-readable string pattern composed of UTF-8 colored symbols.
+    str
+        The corresponding human-readable string pattern composed of UTF-8 colored symbols.
 
     Raises
     ------
@@ -27,22 +29,27 @@ def result_to_pattern(result: str) -> str:
 
     See Also
     --------
-    get_result : A function that generate the result string for a given guess against a target word.
+    get_result : A function that generates the result string for a given guess against a target word.
 
-    Example:
+    Examples
+    --------
     >>> result_to_pattern("01102")
-    "⬛🟨🟨⬛🟩"
+    '⬛🟨🟨⬛🟩'
     >>> result_to_pattern("0001221")
-    "⬛⬛⬛🟨🟩🟩🟨"
+    '⬛⬛⬛🟨🟩🟩🟨'
     """
     if not isinstance(result, str):  # checks that input is of `str` type
         raise TypeError(f"Expected the input to be of type str, got {type(result)}")
 
+    # Define the set of allowed characters in the result string
     allowed_chars = {"0", "1", "2"}  # only characters allowed in input string
+    # Find any characters in result that are not in the allowed set
     invalid_chars = set(result) - allowed_chars
     if invalid_chars:  # checks if there are other characters in result
         raise ValueError(
             f"Input contains invalid characters: {''.join(sorted(invalid_chars))}"
         )
+    # Map each result code to its corresponding emoji: 0=black, 1=yellow, 2=green
     pattern_dict = {"0": "\u2b1b", "1": "\U0001f7e8", "2": "\U0001f7e9"}
+    # Convert each character in result to its corresponding emoji symbol
     return "".join(pattern_dict[char] for char in result)

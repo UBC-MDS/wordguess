@@ -116,6 +116,7 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     This function filters the given corpus of allowed words using the information
     contained in a result history. Each entry in the result history consists of
     a guessed word and its corresponding result string, where:
+
     - '0' indicates the letter is not present in the target word,
     - '1' indicates the letter is present but in the wrong position, and
     - '2' indicates the letter is correct and in the correct position.
@@ -130,22 +131,23 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     result_hist : dict
         A dictionary mapping previously guessed words to their
         corresponding result strings composed of '0', '1', and '2'.
-    n : int (optional)
+    n : int, optional
         The maximum number of valid guesses to return.
         If None, all valid guesses are returned.
-    corpus : list (optional)
+    corpus : list, optional
         A list of all allowed words to consider as possible targets.
 
     Returns
     -------
-    list: A list of words from the corpus that are consistent with the result history.
+    list
+        A list of words from the corpus that are consistent with the result history.
 
     Raises
     ------
     TypeError
-        If result_hist is not a dictionary.
-        If n is not a positive integer or None.
-        If corpus is not a list of strings.
+        If result_hist is not a dictionary;
+        if n is not a positive integer or None; or
+        if corpus is not a list of strings.
     ValueError
         If result_hist is internally inconsistent.
 
@@ -158,7 +160,6 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     >>> result_hist = {"crane": "01200", "sloth": "10020"}
     >>> get_n_guesses(result_hist, corpus=corpus)
     ['about', 'shout', 'mount']
-
     >>> get_n_guesses(result_hist, n=2, corpus=corpus)
     ['shout', 'mount']
     """

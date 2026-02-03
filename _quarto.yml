@@ -5,6 +5,7 @@ project:
     - LICENSE
     - CODE_OF_CONDUCT.md
     - CONTRIBUTING.md
+    - CHANGELOG.md
     - README.md
 
 website:
@@ -35,6 +36,8 @@ website:
         href: index.qmd
       - text: "API Reference"
         href: reference/index.qmd
+      - text: "Changelog"
+        href: CHANGELOG.md
       - text: "Contributing Guide"
         href: CONTRIBUTING.md
       - text: "Code of Conduct"
