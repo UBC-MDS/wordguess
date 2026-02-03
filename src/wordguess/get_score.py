@@ -47,7 +47,7 @@ def get_score(
         If result is not a list of strings or penalty is not a boolean.
     ValueError
         If result strings contain invalid characters;
-        if result strings do not have the same length; or 
+        if result strings do not have the same length; or
         if any result string is empty.
 
     Examples

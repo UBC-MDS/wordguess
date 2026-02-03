@@ -23,16 +23,16 @@ def get_result(target: str, guess: str, corpus: list = minidict) -> str:
     Raises
     ------
     TypeError
-        If target or guess are not strings.  
+        If target or guess are not strings.
     ValueError
-        If target and guess have different lengths;  
-        if the target is not found in the corpus; or  
-        if the guess is not found in the corpus.  
-        
+        If target and guess have different lengths;
+        if the target is not found in the corpus; or
+        if the guess is not found in the corpus.
+
     See Also
     --------
     get_n_guesses : A function that generates a list of possible valid guesses based on previous results.
-        
+
     Examples
     --------
     >>> get_result("apple", "apply")

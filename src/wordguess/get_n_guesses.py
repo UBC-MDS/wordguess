@@ -117,7 +117,7 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     This function filters the given corpus of allowed words using the information
     contained in a result history. Each entry in the result history consists of
     a guessed word and its corresponding result string, where:
-    
+
     - '0' indicates the letter is not present in the target word,
     - '1' indicates the letter is present but in the wrong position, and
     - '2' indicates the letter is correct and in the correct position.
@@ -147,10 +147,10 @@ def get_n_guesses(result_hist: dict, n: int = None, corpus: list = minidict) -> 
     ------
     TypeError
         If result_hist is not a dictionary;
-        if n is not a positive integer or None; or  
-        if corpus is not a list of strings.  
+        if n is not a positive integer or None; or
+        if corpus is not a list of strings.
     ValueError
-        If result_hist is internally inconsistent.  
+        If result_hist is internally inconsistent.
 
     See Also
     --------

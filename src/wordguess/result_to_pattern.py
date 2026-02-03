@@ -3,11 +3,11 @@ def result_to_pattern(result: str) -> str:
     Convert a result string to a human-readable pattern of symbols.
 
     This function maps each character in a result string to a corresponding colored square symbol.
-    
+
     - The character '0' maps to a dark grey square symbol,
     - The character '1' maps to a yellow square symbol and,
     - The character '2' maps to a green square symbol.
-    
+
     The output is a string composed of UTF-8 colored square symbols.
 
     Parameters
