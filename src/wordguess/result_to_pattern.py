@@ -29,7 +29,7 @@ def result_to_pattern(result: str) -> str:
 
     See Also
     --------
-    get_result : A function that generate the result string for a given guess against a target word.
+    get_result : A function that generates the result string for a given guess against a target word.
 
     Examples
     --------
