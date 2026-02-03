@@ -283,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./CHANGELOG.html">Changelog</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -305,6 +305,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CHANGELOG.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Changelog</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -340,6 +346,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">[0.0.1] - 2026-01-10</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">[1.0.0] - 2026-01-17</a></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">[2.0.0] - 2026-01-24</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">[3.0.0] - 2026-02-02</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -415,6 +422,22 @@ ul.task-list li input[type="checkbox"] {
 <li>Removed unused <code>docs</code> directory and Sphinx configuration</li>
 <li>Removed unused GitHub Actions workflows</li>
 <li>Removed Sphinx-related dependencies from <code>pyproject.toml</code></li>
+</ul>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">[3.0.0] - 2026-02-02</h2>
+<ul>
+<li>Fixed errors when running examples in <code>README.md</code> and docstrings (with many thanks to the peer review)</li>
+<li>Added step-by-step tutorials to <code>README.md</code> and documentation site (with many thanks to the peer review)</li>
+<li>Added <code>CHANGELOG.md</code> to the documentation site</li>
+<li>Added badges to <code>README.md</code> for PyPI version, build status, code quality, and documentation status</li>
+<li>Added more words to <code>minidict</code> dataset</li>
+<li>Added more in-line comments to user functions (with many thanks to the peer review)</li>
+<li>Added work organization and retrospectives to <code>CONTRIBUTING.md</code></li>
+<li>Added GitHub Actions workflow for dynamic versioning</li>
+<li>Added GitHub Actions workflow for previewing documentation site</li>
+<li>Added GitHub Actions workflow for code coverage reporting</li>
+<li>Removed redundant signs in the example code snippets in <code>README.md</code> (with many thanks to the peer review)</li>
 </ul>
 
 

@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -375,6 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   <li><a href="#returns" id="toc-returns" class="nav-link" data-scroll-target="#returns">Returns</a></li>
   <li><a href="#raises" id="toc-raises" class="nav-link" data-scroll-target="#raises">Raises</a></li>
+  <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See Also</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
   </ul>
@@ -396,9 +403,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
-<col style="width: 14%">
-<col style="width: 67%">
-<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 72%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -423,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>corpus</td>
-<td>list(optional)</td>
+<td>list</td>
 <td>A collection of valid words used for validation. Defaults to <code>minidict</code>.</td>
 <td><code>minidict</code></td>
 </tr>
@@ -434,9 +441,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 93%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 85%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -449,7 +456,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td></td>
 <td>str</td>
-<td>A string of digits representing the result for each letter: - ‘0’ : The letter does not exist in the target. - ‘1’ : The letter exists in the target but in a different position. - ‘2’ : The letter is in the correct position.</td>
+<td>A string of digits representing the result for each letter, containing ‘0’, ‘1’, and ‘2’.</td>
 </tr>
 </tbody>
 </table>
@@ -459,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
-<col style="width: 8%">
+<col style="width: 7%">
 <col style="width: 86%">
 </colgroup>
 <thead>
@@ -478,10 +485,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td></td>
 <td>ValueError</td>
-<td>If target and guess have different lengths. If the target is not found in the corpus. If the guess is not found in the corpus.</td>
+<td>If target and guess have different lengths; if the target is not found in the corpus; or if the guess is not found in the corpus.</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="see-also" class="level2 doc-section doc-section-see-also">
+<h2 class="doc-section doc-section-see-also anchored" data-anchor-id="see-also">See Also</h2>
+<p>get_n_guesses : A function that generates a list of possible valid guesses based on previous results.</p>
 </section>
 <section id="examples" class="level2 doc-section doc-section-examples">
 <h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>

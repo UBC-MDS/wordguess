@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -392,16 +398,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>get_n_guesses.get_n_guesses</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>get_n_guesses.get_n_guesses(result_hist, n<span class="op">=</span><span class="va">None</span>, corpus<span class="op">=</span>minidict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Return all possible target words consistent with the result history.</p>
-<p>This function filters the given corpus of allowed words using the information contained in a result history. Each entry in the result history consists of a guessed word and its corresponding result string, where: - ‘0’ indicates the letter is not present in the target word, - ‘1’ indicates the letter is present but in the wrong position, and - ‘2’ indicates the letter is correct and in the correct position.</p>
+<p>This function filters the given corpus of allowed words using the information contained in a result history. Each entry in the result history consists of a guessed word and its corresponding result string, where:</p>
+<ul>
+<li>‘0’ indicates the letter is not present in the target word,</li>
+<li>‘1’ indicates the letter is present but in the wrong position, and</li>
+<li>‘2’ indicates the letter is correct and in the correct position.</li>
+</ul>
 <p>Words in the corpus that violate any of the constraints implied by the result history are eliminated and the remaining words are considered to be possible valid guesses. If the parameter n is provided, n random words from the valid guesses are returned. If n is None, all valid guesses are returned.</p>
 <section id="parameters" class="level2 doc-section doc-section-parameters">
 <h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 73%">
-<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 77%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -420,13 +431,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>n</td>
-<td>int(optional)</td>
+<td>int</td>
 <td>The maximum number of valid guesses to return. If None, all valid guesses are returned.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
 <td>corpus</td>
-<td>list(optional)</td>
+<td>list</td>
 <td>A list of all allowed words to consider as possible targets.</td>
 <td><code>minidict</code></td>
 </tr>
@@ -437,9 +448,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 77%">
-<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -450,9 +461,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td></td>
 <td>list</td>
 <td>A list of words from the corpus that are consistent with the result history.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -461,9 +472,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="doc-section doc-section-raises anchored" data-anchor-id="raises">Raises</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 84%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 85%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -476,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td></td>
 <td>TypeError</td>
-<td>If result_hist is not a dictionary. If n is not a positive integer or None. If corpus is not a list of strings.</td>
+<td>If result_hist is not a dictionary; if n is not a positive integer or None; or if corpus is not a list of strings.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -494,9 +505,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">&gt;&gt;&gt;</span> result_hist <span class="op">=</span> {<span class="st">"crane"</span>: <span class="st">"01200"</span>, <span class="st">"sloth"</span>: <span class="st">"10020"</span>}</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="op">&gt;&gt;&gt;</span> get_n_guesses(result_hist, corpus<span class="op">=</span>corpus)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>[<span class="st">'about'</span>, <span class="st">'shout'</span>, <span class="st">'mount'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">&gt;&gt;&gt;</span> get_n_guesses(result_hist, n<span class="op">=</span><span class="dv">2</span>, corpus<span class="op">=</span>corpus)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>[<span class="st">'shout'</span>, <span class="st">'mount'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href="#cb2-3"></a>[<span class="st">'about'</span>, <span class="st">'shout'</span>, <span class="st">'mount'</span>]</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="op">&gt;&gt;&gt;</span> get_n_guesses(result_hist, n<span class="op">=</span><span class="dv">2</span>, corpus<span class="op">=</span>corpus)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>[<span class="st">'shout'</span>, <span class="st">'mount'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

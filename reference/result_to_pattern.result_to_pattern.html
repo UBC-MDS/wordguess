@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -376,6 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#returns" id="toc-returns" class="nav-link" data-scroll-target="#returns">Returns</a></li>
   <li><a href="#raises" id="toc-raises" class="nav-link" data-scroll-target="#raises">Raises</a></li>
   <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See Also</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -391,7 +398,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>result_to_pattern.result_to_pattern</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>result_to_pattern.result_to_pattern(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Convert a result string to a human-readable pattern of symbols.</p>
-<p>This function maps each character in a result string to a corresponding colored square symbol. - The character ‘0’ maps to a dark grey square symbol, - The character ‘1’ maps to a yellow square symbol and, - The character ‘2’ maps to a green square symbol. The output is a string composed of UTF-8 colored square symbols.</p>
+<p>This function maps each character in a result string to a corresponding colored square symbol.</p>
+<ul>
+<li>The character ‘0’ maps to a dark grey square symbol,</li>
+<li>The character ‘1’ maps to a yellow square symbol and,</li>
+<li>The character ‘2’ maps to a green square symbol.</li>
+</ul>
+<p>The output is a string composed of UTF-8 colored square symbols.</p>
 <section id="parameters" class="level2 doc-section doc-section-parameters">
 <h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="caption-top table">
@@ -423,9 +436,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 78%">
-<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 84%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -436,9 +449,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td></td>
 <td>str</td>
 <td>The corresponding human-readable string pattern composed of UTF-8 colored symbols.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -474,8 +487,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="see-also" class="level2 doc-section doc-section-see-also">
 <h2 class="doc-section doc-section-see-also anchored" data-anchor-id="see-also">See Also</h2>
-<p>get_result : A function that generate the result string for a given guess against a target word.</p>
-<p>Example: &gt;&gt;&gt; result_to_pattern(“01102”) “⬛🟨🟨⬛🟩” &gt;&gt;&gt; result_to_pattern(“0001221”) “⬛⬛⬛🟨🟩🟩🟨”</p>
+<p>get_result : A function that generates the result string for a given guess against a target word.</p>
+</section>
+<section id="examples" class="level2 doc-section doc-section-examples">
+<h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">&gt;&gt;&gt;</span> result_to_pattern(<span class="st">"01102"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">'⬛🟨🟨⬛🟩'</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="op">&gt;&gt;&gt;</span> result_to_pattern(<span class="st">"0001221"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">'⬛⬛⬛🟨🟩🟩🟨'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./CONTRIBUTING.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -384,6 +390,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#pull-request-guidelines" id="toc-pull-request-guidelines" class="nav-link" data-scroll-target="#pull-request-guidelines">Pull Request Guidelines</a></li>
   <li><a href="#code-style" id="toc-code-style" class="nav-link" data-scroll-target="#code-style">Code Style</a></li>
+  </ul></li>
+  <li><a href="#development-tools-and-infrastructure" id="toc-development-tools-and-infrastructure" class="nav-link" data-scroll-target="#development-tools-and-infrastructure">Development Tools and Infrastructure</a>
+  <ul class="collapse">
+  <li><a href="#tools-used-in-this-project" id="toc-tools-used-in-this-project" class="nav-link" data-scroll-target="#tools-used-in-this-project">Tools Used in This Project</a></li>
+  <li><a href="#github-infrastructure" id="toc-github-infrastructure" class="nav-link" data-scroll-target="#github-infrastructure">GitHub Infrastructure</a></li>
+  <li><a href="#organizational-practices" id="toc-organizational-practices" class="nav-link" data-scroll-target="#organizational-practices">Organizational Practices</a></li>
+  <li><a href="#scaling-up-tools-and-practices-for-larger-projects" id="toc-scaling-up-tools-and-practices-for-larger-projects" class="nav-link" data-scroll-target="#scaling-up-tools-and-practices-for-larger-projects">Scaling Up: Tools and Practices for Larger Projects</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of Conduct</a></li>
   </ul></li>
@@ -465,6 +479,226 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="code-style" class="level3">
 <h3 class="anchored" data-anchor-id="code-style">Code Style</h3>
 <p>Your suggested code should follow <a href="https://pep8.org/">PEP 8</a> Python style guide. We recommend <a href="https://docs.astral.sh/ruff/">Ruff</a> for automatic code formatting and linting. Use straightforward variable names and keep functions focused on one single task. Docstrings need to be documented under all functions and classes definitions using <a href="https://peps.python.org/pep-0008/#documentation-strings">NumPy style</a>.</p>
+</section>
+</section>
+<section id="development-tools-and-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="development-tools-and-infrastructure">Development Tools and Infrastructure</h2>
+<p>This section documents the development tools, GitHub infrastructure, and organizational practices applied in this project, as well as considerations for scaling up similar projects.</p>
+<section id="tools-used-in-this-project" class="level3">
+<h3 class="anchored" data-anchor-id="tools-used-in-this-project">Tools Used in This Project</h3>
+<section id="package-management-and-build-tools" class="level4">
+<h4 class="anchored" data-anchor-id="package-management-and-build-tools">Package Management and Build Tools</h4>
+<ul>
+<li><strong>Hatch</strong>: Modern Python project manager for building, versioning, and environment management
+<ul>
+<li>Simplifies dependency management and virtual environment creation</li>
+<li>Provides consistent build and test workflows on deploying package</li>
+</ul></li>
+<li><strong>Conda</strong>: Cross-platform package and environment manager
+<ul>
+<li>Manages project dependencies and isolated environments</li>
+<li>Facilitates reproducible development setups</li>
+</ul></li>
+</ul>
+</section>
+<section id="code-quality-and-testing" class="level4">
+<h4 class="anchored" data-anchor-id="code-quality-and-testing">Code Quality and Testing</h4>
+<ul>
+<li><strong>pytest</strong>: Testing framework for writing and running unit tests
+<ul>
+<li>Comprehensive test coverage in <code>tests/</code> directory</li>
+<li>Enables test-driven development practices</li>
+</ul></li>
+<li><strong>Codecov</strong>: Code coverage reporting tool
+<ul>
+<li>Tracks test coverage percentage</li>
+<li>Identifies untested code paths</li>
+</ul></li>
+<li><strong>Ruff</strong>: Python linter and code formatter
+<ul>
+<li>Enforces code style and quality standards</li>
+<li>Automatically formats code to adhere to PEP 8 guidelines</li>
+</ul></li>
+</ul>
+</section>
+<section id="documentation" class="level4">
+<h4 class="anchored" data-anchor-id="documentation">Documentation</h4>
+<ul>
+<li><strong>Quarto</strong>: Scientific and technical publishing system
+<ul>
+<li>Generates project documentation from markdown and code</li>
+<li>Integrates narrative text with executable code examples</li>
+</ul></li>
+<li><strong>quartodoc</strong>: Quarto extension for documentation sites
+<ul>
+<li>Provides templates and tools for building documentation websites</li>
+</ul></li>
+<li><strong>NumPy-style docstrings</strong>: Standard documentation format
+<ul>
+<li>Provides clear, structured documentation for all functions</li>
+<li>Enables automatic documentation generation</li>
+</ul></li>
+</ul>
+</section>
+<section id="version-control" class="level4">
+<h4 class="anchored" data-anchor-id="version-control">Version Control</h4>
+<ul>
+<li><strong>Git</strong>: Distributed version control system</li>
+<li><strong>GitHub</strong>: Cloud-based repository hosting and collaboration platform</li>
+</ul>
+</section>
+</section>
+<section id="github-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="github-infrastructure">GitHub Infrastructure</h3>
+<p>Our project leverages several GitHub features for collaboration and automation:</p>
+<section id="repository-organization" class="level4">
+<h4 class="anchored" data-anchor-id="repository-organization">Repository Organization</h4>
+<ul>
+<li><strong>Branching Strategy</strong>: Feature branch workflow
+<ul>
+<li><code>main</code> branch for stable code</li>
+<li><code>otter</code> branch as our dev branch to integrate features, bug fixes, and changes before they are ready for production</li>
+<li><code>gh-pages</code>: Branch for hosting documentation site</li>
+<li>Pull requests for merging changes into <code>main</code> or <code>otter</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="issue-tracking" class="level4">
+<h4 class="anchored" data-anchor-id="issue-tracking">Issue Tracking</h4>
+<ul>
+<li><strong>GitHub Projects</strong>: Kanban boards for task tracking
+<ul>
+<li>Backlog management and roadmap visualization</li>
+<li>Allow tracking issues, pull requests, and ideas across customizable columns</li>
+</ul></li>
+<li><strong>Issue Templates</strong>: Standardized formats for bug reports and feature requests
+<ul>
+<li>Ensures comprehensive information collection</li>
+<li>Streamlines triage and prioritization</li>
+</ul></li>
+</ul>
+</section>
+<section id="pull-request-workflow" class="level4">
+<h4 class="anchored" data-anchor-id="pull-request-workflow">Pull Request Workflow</h4>
+<ul>
+<li><strong>Pull Request Templates</strong>: Guide contributors through necessary information</li>
+<li><strong>Code Review</strong>: Copilot and peer review process before merging</li>
+<li><strong>Automated Checks</strong>: CI/CD integration validates code quality</li>
+</ul>
+</section>
+<section id="project-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="project-documentation">Project Documentation</h4>
+<ul>
+<li><strong>README.md</strong>: Project overview, installation, and usage instructions</li>
+<li><strong>CONTRIBUTING.md</strong>: Contribution guidelines and development setup</li>
+<li><strong>CODE_OF_CONDUCT.md</strong>: Community standards and expectations</li>
+<li><strong>CHANGELOG.md</strong>: Record of changes and version history</li>
+<li><strong>LICENSE</strong>: MIT License for open-source distribution</li>
+</ul>
+</section>
+</section>
+<section id="organizational-practices" class="level3">
+<h3 class="anchored" data-anchor-id="organizational-practices">Organizational Practices</h3>
+<section id="development-workflow" class="level4">
+<h4 class="anchored" data-anchor-id="development-workflow">Development Workflow</h4>
+<ul>
+<li><strong>Issue-Driven Development</strong>: All changes start with an issue</li>
+<li><strong>Test-Driven Development</strong>: Write tests before implementing features</li>
+<li><strong>Code Review</strong>: All changes reviewed by at least one team member</li>
+</ul>
+</section>
+<section id="team-collaboration" class="level4">
+<h4 class="anchored" data-anchor-id="team-collaboration">Team Collaboration</h4>
+<ul>
+<li><strong>Clear Ownership</strong>: Issues assigned to specific team members</li>
+<li><strong>Communication</strong>: GitHub issues and pull requests for async collaboration</li>
+<li><strong>Documentation</strong>: Comprehensive inline comments and docstrings</li>
+<li><strong>Consistency</strong>: Shared code style and formatting standards</li>
+</ul>
+</section>
+<section id="quality-assurance" class="level4">
+<h4 class="anchored" data-anchor-id="quality-assurance">Quality Assurance</h4>
+<ul>
+<li><strong>Type Hints</strong>: Python type annotations throughout codebase</li>
+<li><strong>Unit Tests</strong>: Comprehensive test coverage in <code>tests/unit/</code></li>
+<li><strong>Manual Testing</strong>: Verification of functionality before merging</li>
+</ul>
+</section>
+</section>
+<section id="scaling-up-tools-and-practices-for-larger-projects" class="level3">
+<h3 class="anchored" data-anchor-id="scaling-up-tools-and-practices-for-larger-projects">Scaling Up: Tools and Practices for Larger Projects</h3>
+<p>If scaling this or similar projects, we would implement the following additional tools and practices:</p>
+<section id="continuous-integrationcontinuous-deployment-cicd" class="level4">
+<h4 class="anchored" data-anchor-id="continuous-integrationcontinuous-deployment-cicd">Continuous Integration/Continuous Deployment (CI/CD)</h4>
+<ul>
+<li><strong>GitHub Actions</strong>: Automate testing, building, and deployment
+<ul>
+<li>Run test suite on every push and pull request</li>
+<li>Automatic package building and publishing to PyPI</li>
+<li>Documentation deployment to GitHub Pages or Read the Docs</li>
+</ul></li>
+<li><strong>Pre-commit Hooks</strong>: Enforce code quality locally before commits
+<ul>
+<li>Check for large files, merge conflicts, and trailing whitespace</li>
+</ul></li>
+</ul>
+</section>
+<section id="enhanced-testing" class="level4">
+<h4 class="anchored" data-anchor-id="enhanced-testing">Enhanced Testing</h4>
+<ul>
+<li><strong>Performance Tests</strong>: Ensure functions maintain acceptable performance</li>
+<li><strong>Integration Tests</strong>: Test component interactions</li>
+<li><strong>End-to-End Tests</strong>: Validate complete workflows</li>
+</ul>
+</section>
+<section id="dependency-management" class="level4">
+<h4 class="anchored" data-anchor-id="dependency-management">Dependency Management</h4>
+<ul>
+<li><strong>Dependabot</strong>: Automated dependency updates
+<ul>
+<li>Security vulnerability notifications</li>
+<li>Automatic pull requests for updates</li>
+</ul></li>
+<li><strong>Safety/Bandit</strong>: Security scanning for vulnerabilities</li>
+<li><strong>Lock Files</strong>: Pin exact dependency versions for reproducibility</li>
+</ul>
+</section>
+<section id="code-quality-tools" class="level4">
+<h4 class="anchored" data-anchor-id="code-quality-tools">Code Quality Tools</h4>
+<ul>
+<li><strong>MyPy</strong>: Static type checking
+<ul>
+<li>Catch type errors before runtime</li>
+<li>Improve code reliability</li>
+</ul></li>
+<li><strong>Coverage Requirements</strong>: Enforce minimum coverage thresholds</li>
+<li><strong>SonarQube/CodeClimate</strong>: Advanced code quality metrics
+<ul>
+<li>Code complexity analysis</li>
+<li>Maintainability scoring</li>
+<li>Security hotspot detection</li>
+</ul></li>
+</ul>
+</section>
+<section id="project-management" class="level4">
+<h4 class="anchored" data-anchor-id="project-management">Project Management</h4>
+<ul>
+<li><strong>Issue Automation</strong>: Automated labeling and triage</li>
+<li><strong>Release Management</strong>: Semantic versioning with automated releases</li>
+</ul>
+</section>
+<section id="monitoring-and-analytics" class="level4">
+<h4 class="anchored" data-anchor-id="monitoring-and-analytics">Monitoring and Analytics</h4>
+<ul>
+<li><strong>PyPI Statistics</strong>: Track package downloads and usage</li>
+<li><strong>Error Tracking</strong>: Sentry or similar for runtime error monitoring</li>
+<li><strong>User Feedback</strong>: Issue templates for user-reported bugs and features</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>The tools and practices applied in this project establish a solid foundation for collaborative open-source development. For larger-scale projects, the additional infrastructure focuses on automation, quality assurance, and enabling distributed teams to work effectively. The key principle is to automate routine tasks, enforce quality standards early in the development process, and maintain clear documentation and communication channels.</p>
 </section>
 </section>
 <section id="code-of-conduct" class="level2">

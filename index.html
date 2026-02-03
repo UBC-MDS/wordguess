@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -420,11 +426,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Package</td>
-<td><a href="https://pypi.org/project/wordguess/"><img src="https://img.shields.io/pypi/v/wordguess.svg" class="img-fluid" alt="Latest PyPI Version"></a> <a href="https://pypi.org/project/wordguess/"><img src="https://img.shields.io/pypi/pyversions/wordguess.svg" class="img-fluid" alt="Supported Python Versions"></a></td>
+<td><a href="https://test.pypi.org/project/wordguess/"><img src="https://img.shields.io/pypi/v/wordguess?label=TestPyPI&amp;logo=python&amp;color=blue&amp;pypiBaseUrl=https%3A%2F%2Ftest.pypi.org" class="img-fluid" alt="Latest Test PyPI Version"></a> <a href="https://test.pypi.org/project/wordguess/"><img src="https://img.shields.io/badge/python-%3E=3.10-blue?logo=python" class="img-fluid" alt="Supported Python Versions"></a></td>
 </tr>
 <tr class="even">
 <td>Meta</td>
-<td><a href="./CODE_OF_CONDUCT.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" class="img-fluid" alt="Code of Conduct"></a></td>
+<td><a href="./CODE_OF_CONDUCT.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" class="img-fluid" alt="Code of Conduct"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" class="img-fluid" alt="License: MIT"></a></td>
+</tr>
+<tr class="odd">
+<td>Testing</td>
+<td><a href="https://github.com/UBC-MDS/wordguess/actions/workflows/build.yml"><img src="https://github.com/UBC-MDS/wordguess/actions/workflows/build.yml/badge.svg" class="img-fluid" alt="Unit Tests"></a> <a href="https://codecov.io/github/UBC-MDS/wordguess"><img src="https://codecov.io/github/UBC-MDS/wordguess/graph/badge.svg?token=wxpY8GJ0LI" class="img-fluid" alt="codecov"></a></td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td><a href="https://github.com/UBC-MDS/wordguess/actions/workflows/docs.yml"><img src="https://github.com/UBC-MDS/wordguess/actions/workflows/docs.yml/badge.svg" class="img-fluid" alt="Docs Build"></a></td>
 </tr>
 </tbody>
 </table>
@@ -447,15 +461,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="get-started">Get started</h2>
 <p>You can install this package into your preferred Python environment using pip:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install <span class="at">-i</span> https://test.pypi.org/simple/ wordguess</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To use <code>wordguess</code> in your code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> wordguess.get_result <span class="im">import</span> get_result</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="op">&gt;&gt;&gt;</span> get_result(<span class="st">"spark"</span>, <span class="st">"spoon"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> wordguess <span class="im">as</span> wg</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="op">&gt;&gt;&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="op">&gt;&gt;&gt;</span> result_hist <span class="op">=</span> {}</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> word <span class="kw">in</span> [<span class="st">'whelp'</span>,<span class="st">'might'</span>,<span class="st">'madam'</span>]:</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="op">&gt;&gt;&gt;</span>     result_hist[word] <span class="op">=</span> wg.get_result(<span class="st">'major'</span>, word)</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="op">&gt;&gt;&gt;</span>     wg.get_n_guesses(result_hist, n<span class="op">=</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To use <code>wordguess</code> in your code, you can follow this full example that applies the built-in <code>minidict</code> dataset and all four main functions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># 1. Load the package with alias.</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> wordguess <span class="im">as</span> wg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 2. Get the string results of making three different guesses against the target "major". </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>result_hist <span class="op">=</span> {}</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">for</span> word <span class="kw">in</span> [<span class="st">'whelp'</span>,<span class="st">'might'</span>,<span class="st">'madam'</span>]:</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="co"># As a player, we do not know the target word "major", </span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="co"># so we simulate getting the result:</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    result_hist[word] <span class="op">=</span> wg.get_result(<span class="st">'major'</span>, word)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># 3. Get the top three possible target words based on the result history. </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># This may be used to provide hints to the player.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>wg.get_n_guesses(result_hist, n<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 4. Get the overall score of guesses based on the results:</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>results <span class="op">=</span> <span class="bu">list</span>(result_hist.values())</span>
+<span id="cb5-3"><a href="#cb5-3"></a>wg.get_score(results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># 5. Convert the result of the last guess into a human-readable pattern.</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>last_result <span class="op">=</span> result_hist[<span class="st">'madam'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3"></a>wg.result_to_pattern(last_result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="development" class="level2">
 <h2 class="anchored" data-anchor-id="development">Development</h2>
@@ -463,21 +486,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setting-up-a-development-environment" class="level3">
 <h3 class="anchored" data-anchor-id="setting-up-a-development-environment">Setting up a development environment</h3>
 <p>You can set up a development environment by cloning the repository and installing the dependencies (we recommend using <code>conda</code>):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Creating a conda environment includes installing the package in editable mode for development. If you are not using <code>conda</code>, you can install it manually:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .<span class="pp">[</span><span class="ss">dev</span><span class="pp">]</span>  <span class="co"># not required if using the above conda setup</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .<span class="pp">[</span><span class="ss">dev</span><span class="pp">]</span>  <span class="co"># not required if using the above conda setup</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="running-tests" class="level3">
 <h3 class="anchored" data-anchor-id="running-tests">Running tests</h3>
 <p>To run the test suite, use:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">pytest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">pytest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="building-documentation" class="level3">
 <h3 class="anchored" data-anchor-id="building-documentation">Building documentation</h3>
 <p>Documentation needs to be updated when changes are made. You can build the documentation locally using <code>quartodoc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">quartodoc</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">quartodoc</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After reviewing and fixing the auto-generated <code>.qmd</code> files, you can preview the documentation to HTML:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="code-style" class="level3">
 <h3 class="anchored" data-anchor-id="code-style">Code style</h3>

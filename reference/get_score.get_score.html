@@ -344,6 +344,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../CHANGELOG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changelog</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../CONTRIBUTING.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing Guide</span></a>
   </div>
@@ -399,8 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 81%">
+<col style="width: 3%">
+<col style="width: 83%">
 <col style="width: 5%">
 </colgroup>
 <thead>
@@ -414,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>result</td>
-<td>list of str</td>
+<td>list</td>
 <td>A list containing the list of result. The result is a string with characters ‘0’, ‘1’, and ‘2’ representing different guess outcomes.</td>
 <td><em>required</em></td>
 </tr>
@@ -481,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td></td>
 <td>ValueError</td>
-<td>If result strings contain invalid characters. If result strings do not have the same length. If any result string is empty.</td>
+<td>If result strings contain invalid characters; if result strings do not have the same length; or if any result string is empty.</td>
 </tr>
 </tbody>
 </table>
