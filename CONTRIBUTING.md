@@ -118,24 +118,39 @@ This section documents the development tools, GitHub infrastructure, and organiz
 ### Tools Used in This Project
 
 #### Package Management and Build Tools
+
 - **Hatch**: Modern Python project manager for building, versioning, and environment management
   - Simplifies dependency management and virtual environment creation
   - Provides consistent build and test workflows on deploying package
+- **Conda**: Cross-platform package and environment manager
+  - Manages project dependencies and isolated environments
+  - Facilitates reproducible development setups
 
 #### Code Quality and Testing
+
 - **pytest**: Testing framework for writing and running unit tests
   - Comprehensive test coverage in `tests/` directory
   - Enables test-driven development practices
+- **Codecov**: Code coverage reporting tool
+  - Tracks test coverage percentage
+  - Identifies untested code paths
+- **Ruff**: Python linter and code formatter
+  - Enforces code style and quality standards
+  - Automatically formats code to adhere to PEP 8 guidelines
 
 #### Documentation
+
 - **Quarto**: Scientific and technical publishing system
   - Generates project documentation from markdown and code
   - Integrates narrative text with executable code examples
+- **quartodoc**: Quarto extension for documentation sites
+  - Provides templates and tools for building documentation websites
 - **NumPy-style docstrings**: Standard documentation format
   - Provides clear, structured documentation for all functions
   - Enables automatic documentation generation
 
 #### Version Control
+
 - **Git**: Distributed version control system
 - **GitHub**: Cloud-based repository hosting and collaboration platform
 
@@ -144,51 +159,53 @@ This section documents the development tools, GitHub infrastructure, and organiz
 Our project leverages several GitHub features for collaboration and automation:
 
 #### Repository Organization
+
 - **Branching Strategy**: Feature branch workflow
   - `main` branch for stable code
   - `otter` branch as our dev branch to integrate features, bug fixes, and changes before they are ready for production
-  - Pull requests required for merging to main
-
-#### Collaboration at Scale
-- **Branch Protection Rules**: Require reviews and passing tests
-  - Prevent direct pushes to main
-  - Require status checks to pass
-  - Enforce code owner reviews for critical files
+  - `gh-pages`: Branch for hosting documentation site
+  - Pull requests for merging changes into `main` or `otter`
 
 #### Issue Tracking
+
 - **GitHub Projects**: Kanban boards for task tracking
-  - Sprint planning and backlog management
-  - Roadmap visualization
+  - Backlog management and roadmap visualization
   - Allow tracking issues, pull requests, and ideas across customizable columns
 - **Issue Templates**: Standardized formats for bug reports and feature requests
   - Ensures comprehensive information collection
   - Streamlines triage and prioritization
 
 #### Pull Request Workflow
+
 - **Pull Request Templates**: Guide contributors through necessary information
-- **Code Review**: Peer review process before merging
+- **Code Review**: Copilot and peer review process before merging
 - **Automated Checks**: CI/CD integration validates code quality
 
 #### Project Documentation
+
 - **README.md**: Project overview, installation, and usage instructions
 - **CONTRIBUTING.md**: Contribution guidelines and development setup
 - **CODE_OF_CONDUCT.md**: Community standards and expectations
+- **CHANGELOG.md**: Record of changes and version history
 - **LICENSE**: MIT License for open-source distribution
 
 ### Organizational Practices
 
 #### Development Workflow
-1. **Issue-Driven Development**: All changes start with an issue
-2. **Test-Driven Development**: Write tests before implementing features
-3. **Code Review**: All changes reviewed by at least one team member
+
+- **Issue-Driven Development**: All changes start with an issue
+- **Test-Driven Development**: Write tests before implementing features
+- **Code Review**: All changes reviewed by at least one team member
 
 #### Team Collaboration
+
 - **Clear Ownership**: Issues assigned to specific team members
 - **Communication**: GitHub issues and pull requests for async collaboration
 - **Documentation**: Comprehensive inline comments and docstrings
 - **Consistency**: Shared code style and formatting standards
 
 #### Quality Assurance
+
 - **Type Hints**: Python type annotations throughout codebase
 - **Unit Tests**: Comprehensive test coverage in `tests/unit/`
 - **Manual Testing**: Verification of functionality before merging
@@ -198,27 +215,22 @@ Our project leverages several GitHub features for collaboration and automation:
 If scaling this or similar projects, we would implement the following additional tools and practices:
 
 #### Continuous Integration/Continuous Deployment (CI/CD)
+
 - **GitHub Actions**: Automate testing, building, and deployment
   - Run test suite on every push and pull request
-  - Automated code quality checks (linting, type checking)
   - Automatic package building and publishing to PyPI
   - Documentation deployment to GitHub Pages or Read the Docs
 - **Pre-commit Hooks**: Enforce code quality locally before commits
   - Check for large files, merge conflicts, and trailing whitespace
 
 #### Enhanced Testing
-- **pytest-cov**: Code coverage reporting
-  - Track test coverage percentage
-  - Identify untested code paths
-- **pytest-benchmark**: Performance testing
-  - Ensure functions maintain acceptable performance
-- **Hypothesis**: Property-based testing
-  - Generate edge cases automatically
-  - More robust validation of function behavior
+
+- **Performance Tests**: Ensure functions maintain acceptable performance
 - **Integration Tests**: Test component interactions
 - **End-to-End Tests**: Validate complete workflows
 
 #### Dependency Management
+
 - **Dependabot**: Automated dependency updates
   - Security vulnerability notifications
   - Automatic pull requests for updates
@@ -226,6 +238,7 @@ If scaling this or similar projects, we would implement the following additional
 - **Lock Files**: Pin exact dependency versions for reproducibility
 
 #### Code Quality Tools
+
 - **MyPy**: Static type checking
   - Catch type errors before runtime
   - Improve code reliability
@@ -236,20 +249,18 @@ If scaling this or similar projects, we would implement the following additional
   - Security hotspot detection
 
 #### Project Management
+
 - **Issue Automation**: Automated labeling and triage
 - **Release Management**: Semantic versioning with automated releases
 
 #### Monitoring and Analytics
+
 - **PyPI Statistics**: Track package downloads and usage
 - **Error Tracking**: Sentry or similar for runtime error monitoring
 - **User Feedback**: Issue templates for user-reported bugs and features
 
-#### Security
-- **Security Policy**: SECURITY.md with vulnerability reporting process
-- **Code Scanning**: GitHub Advanced Security features
-- **Secret Scanning**: Prevent credential leakage
-
 ### Conclusion
+
 The tools and practices applied in this project establish a solid foundation for collaborative open-source development. For larger-scale projects, the additional infrastructure focuses on automation, quality assurance, and enabling distributed teams to work effectively. The key principle is to automate routine tasks, enforce quality standards early in the development process, and maintain clear documentation and communication channels.
 
 ## Code of Conduct
