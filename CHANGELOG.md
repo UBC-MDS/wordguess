@@ -59,7 +59,7 @@ All notable changes to this project will be documented in this file.
 - Removed unused GitHub Actions workflows
 - Removed Sphinx-related dependencies from `pyproject.toml`
 
-## [2.0.0] - 2026-02-02
+## [3.0.0] - 2026-02-02
 
 - Fixed errors when running examples in `README.md` and docstrings (with many thanks to the peer review)
 - Added step-by-step tutorials to `README.md` and documentation site (with many thanks to the peer review)
