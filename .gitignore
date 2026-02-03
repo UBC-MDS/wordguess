@@ -242,7 +242,7 @@ cython_debug/
 #.idea/
 
 # Hatch-VCS
-_version.py
+src/wordguess/__version__.py
 
 /.quarto/
 **/*.quarto_ipynb
