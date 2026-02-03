@@ -13,8 +13,7 @@ def check_dict_validity(result_hist, corpus):
 
     1. All keys and values are non-empty strings of equal length.
     2. All guesses exist in the provided corpus.
-    3. No conflicting posit
-    ional assignments for letters marked as correct ('2').
+    3. No conflicting positional assignments for letters marked as correct ('2').
     4. The total number of distinct present letters (from '1' and '2') does not
        exceed the word length.
     5. No letter is simultaneously marked as absent ('0') and present ('1' or '2').
