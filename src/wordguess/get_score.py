@@ -24,7 +24,7 @@ def get_score(
 
     Parameters
     ----------
-    result : list of str
+    result : list
         A list containing the list of result. The result is a string
         with characters '0', '1', and '2' representing different guess outcomes.
 
@@ -46,9 +46,9 @@ def get_score(
     TypeError
         If result is not a list of strings or penalty is not a boolean.
     ValueError
-        If result strings contain invalid characters.
-        If result strings do not have the same length.
-        If any result string is empty.
+        If result strings contain invalid characters;
+        if result strings do not have the same length; or
+        if any result string is empty.
 
     Examples
     --------

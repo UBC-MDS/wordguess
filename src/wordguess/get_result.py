@@ -11,26 +11,28 @@ def get_result(target: str, guess: str, corpus: list = minidict) -> str:
         The secret word that needs to be guessed.
     guess : str
         The word provided by the player to be compared against the target.
-    corpus : list (optional)
+    corpus : list, optional
         A collection of valid words used for validation.
         Defaults to `minidict`.
 
     Returns
     -------
     str
-        A string of digits representing the result for each letter:
-        - '0' : The letter does not exist in the target.
-        - '1' : The letter exists in the target but in a different position.
-        - '2' : The letter is in the correct position.
+        A string of digits representing the result for each letter, containing '0', '1', and '2'.
 
     Raises
     ------
     TypeError
         If target or guess are not strings.
     ValueError
-        If target and guess have different lengths.
-        If the target is not found in the corpus.
-        If the guess is not found in the corpus.
+        If target and guess have different lengths;
+        if the target is not found in the corpus; or
+        if the guess is not found in the corpus.
+
+    See Also
+    --------
+    get_n_guesses : A function that generates a list of possible valid guesses based on previous results.
+
     Examples
     --------
     >>> get_result("apple", "apply")
