@@ -72,3 +72,7 @@ All notable changes to this project will be documented in this file.
 - Added GitHub Actions workflow for previewing documentation site
 - Added GitHub Actions workflow for code coverage reporting
 - Removed redundant signs in the example code snippets in `README.md` (with many thanks to the peer review)
+
+## [3.0.5] - 2026-02-03
+
+- Updated dynamic versioning from pre-releases to stable releases
