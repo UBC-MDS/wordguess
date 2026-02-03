@@ -58,3 +58,17 @@ All notable changes to this project will be documented in this file.
 - Removed unused `docs` directory and Sphinx configuration
 - Removed unused GitHub Actions workflows
 - Removed Sphinx-related dependencies from `pyproject.toml`
+
+## [2.0.0] - 2026-02-02
+
+- Fixed errors when running examples in `README.md` and docstrings (with many thanks to the peer review)
+- Added step-by-step tutorials to `README.md` and documentation site (with many thanks to the peer review)
+- Added `CHANGELOG.md` to the documentation site
+- Added badges to `README.md` for PyPI version, build status, code quality, and documentation status
+- Added more words to `minidict` dataset
+- Added more in-line comments to user functions (with many thanks to the peer review)
+- Added work organization and retrospectives to `CONTRIBUTING.md`
+- Added GitHub Actions workflow for dynamic versioning
+- Added GitHub Actions workflow for previewing documentation site
+- Added GitHub Actions workflow for code coverage reporting
+- Removed redundant signs in the example code snippets in `README.md` (with many thanks to the peer review)
