@@ -28,22 +28,40 @@ You can install this package into your preferred Python environment using pip:
 
 ```bash
 pip install -i https://test.pypi.org/simple/ wordguess
-``````
+```
 
-To use `wordguess` in your code:
+To use `wordguess` in your code, you can follow this full example that applies the built-in `minidict` dataset and all four main functions:
 
 ```python
-from wordguess.get_result import get_result
-get_result("spark", "spoon")
+# 1. Load the package with alias.
+import wordguess as wg
 ```
 
 ```python
-import wordguess as wg
-
+# 2. Get the string results of making three different guesses against the target "major". 
 result_hist = {}
 for word in ['whelp','might','madam']:
+    # As a player, we do not know the target word "major", 
+    # so we simulate getting the result:
     result_hist[word] = wg.get_result('major', word)
-    wg.get_n_guesses(result_hist, n=10)
+```
+
+```python
+# 3. Get the top three possible target words based on the result history. 
+# This may be used to provide hints to the player.
+wg.get_n_guesses(result_hist, n=3)
+```
+
+```python
+# 4. Get the overall score of guesses based on the results:
+results = list(result_hist.values())
+wg.get_score(results)
+```
+
+```python
+# 5. Convert the result of the last guess into a human-readable pattern.
+last_result = result_hist['madam']
+wg.result_to_pattern(last_result)
 ```
 
 ## Development
