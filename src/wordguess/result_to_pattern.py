@@ -41,11 +41,15 @@ def result_to_pattern(result: str) -> str:
     if not isinstance(result, str):  # checks that input is of `str` type
         raise TypeError(f"Expected the input to be of type str, got {type(result)}")
 
+    # Define the set of allowed characters in the result string
     allowed_chars = {"0", "1", "2"}  # only characters allowed in input string
+    # Find any characters in result that are not in the allowed set
     invalid_chars = set(result) - allowed_chars
     if invalid_chars:  # checks if there are other characters in result
         raise ValueError(
             f"Input contains invalid characters: {''.join(sorted(invalid_chars))}"
         )
+    # Map each result code to its corresponding emoji: 0=black, 1=yellow, 2=green
     pattern_dict = {"0": "\u2b1b", "1": "\U0001f7e8", "2": "\U0001f7e9"}
+    # Convert each character in result to its corresponding emoji symbol
     return "".join(pattern_dict[char] for char in result)

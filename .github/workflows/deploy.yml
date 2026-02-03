@@ -1,10 +1,10 @@
 name: Publish to TestPyPI
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
-  workflow_dispatch: # Manual trigger
+    tags:
+      - '*.*.*'
 
 jobs:
   build-and-test:
